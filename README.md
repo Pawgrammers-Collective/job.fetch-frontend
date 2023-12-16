@@ -25,80 +25,84 @@ The platform should demonstrate the key features of job search, filtering, and s
 2. About Us Wireframe
 ![About us wireframe](img/aboutus-wireframe.png)
 
+3. About Us Wireframe
+![Saved jobs wireframe](img/savedjobs-wireframe.png)
+
 ### User Stories
 
-1. Ingredients Dropdown(s)
+1. Trello Board
+![Trello Board](https://trello.com/b/OuOl64kg/301-project)
+
+1. Login authentication
 
     - User Story sentence
-      - As a user, I want to be able to choose ingredients for a cocktail so that I have some control over how my cocktail will taste
+      - As a user, I want to log in into my google account and be able to see my   personalized data.
     - Feature Tasks
-      - Create an instructions panel above the drop down menus 
-      - Create Dropdown of base: four options (Rum, Vodka, Whisky, Gin)
-      - Create Dropdown of citrous: three options (lemon, lime, orange, grapefruit)
-      - Create Dropdown of bitter: four options (bitters, campari, cynar, aperol)
-      - Create Dropdown of sweet: four options (simple syrup, sweet vermouth, dry vermouth, honey syrup)
-
+      - When a job is saved the user will be able to log out, then log back in and still display the users saves.
+      - The user will have a customized web page when logged in.
     - Acceptance Tests
-      - dropdown menus will display appropriate ingredients
-      - section with instructions is rendered on page
-      - ingredients selected stays on page 
+      - login with Auth0 works properly.
+      - Users data gets displayed
+      - Save page displays the users job saves.
+    - Estimate your User Stories: 1 day
+
+
+1. Job Search
+
+    - User Story sentence
+      - As a user, I want to be able to search for tech jobs based on job titles.
+    - Feature Tasks
+      - Create a search bar to send params to the api call.
+      - Create other options to send as params for the api call.
+      - Create a react bootstrap accordion for the return of the api call.
+    - Acceptance Tests
+      - Search bar returns data that is correct to the search parameter.
+      - There is at least one filter for the data that gets returned.
+      - The accordion works properly.
 
     - Estimate your User Stories: 1-2 days 
 
-1. Recipe
+
+3. Job Save
 
     - User Story sentence
-      - As a user, I want the website to provide me with a finished cocktail recipe so that I do not have to calculate volumes. 
+      - As a user, I want to be able to save any of the jobs from my job search.
     - Feature Tasks
-      - Recipe should show all ingredients I chose
-      - Recipe should show all volumes of each ingredient
-      - Recipe will display when I click the submit button for the form
+      - When saved, the job will be added to the database.
+      - When saved, the saved job will be displayed in the saved jobs section.
     - Acceptance Tests
-      - All ingredients should be listed by name and be the ones the user chose. 
-      - Volumes should be rounded to nearest 0.25 oz or one “dash”
-      - Each ingredient should have a specific volume attributed to them - set static values
-      - Display random name of cocktail
-    - Estimate your User Stories: 2.5 days
+      - Save a job and check if it displays on the save page.
+      - Check to see if every save is being added to the database.
+    - Estimate your User Stories: 1 day
 
-1. About Us
+4. LeetCode
 
     - User Story sentence
-      - As a user, I want a link from the main page to an about us page that introduces each member and a summary of the organization so that I know who/what the roles were 
+      - As a user, I want to practice interview whiteboard code questions. 
     - Feature Tasks
-      - anchor tags from home page to ‘about us’ and vice versa
-      - Section for each member of the team that gives a brief intro, picture, favorite cocktail
-      - Paragraph of the mission/values of the team
-      - Statically coded into html
-    - Acceptance Tests
-      - HTML/CSS loads correctly
-      - Adjusts to users Viewport
-      - Layout is correct
-    - Estimate your User Stories: 3 hours
+      - Be able to select a difficulty.
+      - Leetcode questions will be displayed on the screen.
+	- Identify if the user got a question correct.
 
-1. Cocktail Image
+    - Acceptance Tests
+      -Have a leetcode question be displayed.
+      - Be able to submit an answer to the question.
+      - Be able to select a difficulty.
+    - Estimate your User Stories: 1 day.
+
+1. AI Interview Questions
 
     - User Story sentence
-      - As a user, I want and image of the cocktail displayed next to the recipe so that I can see what the cocktail should look like. 
+      - As a user, I want to be able to practice tech interview questions.
     - Feature Tasks
-      - Image Size
-      - Select cocktail images, one per base alcohol (4)
+      - Hit a button and get a prompt back in the form of an interview question.
+      - Be able to respond to the prompt and get feedback
     - Acceptance Tests
-      - Image replaces placeholder image without distorting the rest of the layout.
-      - cocktail image should be appropriately sized and aligned next to the recipe.
-      - the displayed image should correspond to that particular cocktail.
-    - Estimate your User Stories: 4-8 hours for frontend and backend pieces of work
+      - Prompt appears when a button is pressed.
+    - Response bar is provided.
+	- Some sort of user feedback based on the response.
+    - Estimate your User Stories - 1 day
 
-1. Dropdown Hover state
-
-    - User Story sentence
-      - As someone who is not familiar with cocktails, I want a feature that will allow me to hover over an item in the dropdown so that it clarifies the ingredient  
-    - Feature Tasks
-      - Description disappears once user moves cursor
-      - Input descriptors for each ingredients 
-    - Acceptance Tests
-      - Info. pops up and goes away depending on cursor
-    - MVP - Hover for each category
-    - Estimate your User Stories - 4 hours
 
 ### Domain Modeling 
 
@@ -111,7 +115,6 @@ Include in your domain model the names and data types of your entities and their
 
 1. Domain Model
 ![Miro Domain Model](img/domain-model.png)
-
 
 
 <!-- ### Using a Database? Make an Database Schema Diagram ?
@@ -131,3 +134,17 @@ Also, include for each separate collection:
 1. An indication if this collection is associated with another collection.
 
 Include this diagram in your readme, accompanied by an explanation of each data model and it’s responsibility in the application. -->
+
+Diagram?
+
+We will be using MongoDB: a non-SQL database that uses documents usually in JSON or BSON format. We anticipate only needing one collection within our database though it may be bested with multiple objects and arrays.
+Collection 1 Users
+	Name: String
+	Auth0 info: Object
+	Saved Search: Object
+	Saved Jobs: Array
+	Saved Interview Q Responses: Array
+	Resume: Object??
+	Saved Cover Letters: Array??
+
+
