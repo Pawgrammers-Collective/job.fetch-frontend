@@ -1,15 +1,15 @@
 import React from 'react';
-import { withAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Login() {
 
   const {
     isAuthenticated,
     loginWithRedirect,
-  } = withAuth0();
+  } = useAuth0();
 
-  function handleLogin() {
-    loginWithRedirect();
+  const handleLogin = async ()=>  {
+    await loginWithRedirect();
   }
 
   return ! isAuthenticated &&
