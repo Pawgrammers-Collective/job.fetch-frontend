@@ -1,48 +1,40 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
-import axios from 'axios';
-import AuthButtons from './Components/buttons/AuthButtons.jsx';
-import Home from './Components/Home.jsx';
-import Login from './Components/buttons/Login.jsx';
-import Logout from './Components/buttons/Logout.jsx';
-import { useAuth0 } from '@auth0/auth0-react';
-import Dogs from './Dogs.jsx';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// import { useAuth0 } from '@auth0/auth0-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Components/Home';
+import NavBarButtons from './Components/buttons/NavBarButtons';
+// import Footer from './Footer';
+// import AboutUs from './Components/AboutUs';
+// import Login from './Components/buttons/Login.jsx';
+// import Logout from './Components/buttons/Logout.jsx';
 
+// import Profile from './Components/Profile';
+// import AuthButtons from './src/Buttons/AuthButtons.jsx';
 
 
 function App(props) {
   console.log(props)
-
-
   return (
     <>
     <Router>
-        <Header />
+        {/* <Header /> */}
         <Routes>
-          <Route 
+          <Route
             exact path="/"
             element={<Home />}
             >
           </Route>
-          <Route 
+          <Route
             exact path="/profile"
-            element={<AuthButtons />}
+            element={<NavBarButtons />}
             >
           </Route>
-          {/* <Route 
-            exact path="/login"
-            element={<Login />}
-            >
-          </Route>
-          <Route 
-            exact path="/logout"
-            element={<Logout />}
-            >
-          </Route> */}
         </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
-      {/* <button onClick={fetchDogs}>Get Some Dogs</button> 
+      {/* <button onClick={fetchDogs}>Get Some Dogs</button>
       <AuthButtons/>
       <hr />
       {
@@ -55,5 +47,4 @@ function App(props) {
     </>
   )
 }
-
-export default useAuth0(App);
+export default App;

@@ -1,19 +1,22 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
-function Login() {
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
 
-  const {
-    isAuthenticated,
-    loginWithRedirect,
-  } = useAuth0();
+  const handleLogin = async () => {
+    await loginWithRedirect({
+      appState: {
+        returnTo: "/profile",
+      },
+    });
+  };
 
-  const handleLogin = async ()=>  {
-    await loginWithRedirect();
-  }
+  return (
+    <button className="button__login" onClick={handleLogin}>
+      Log In
+    </button>
+  );
+};
 
-  return ! isAuthenticated &&
-    <button onClick={handleLogin}>Log in</button>
-  ;
-}
-export default withAuth0(Login);
+export default LoginButton;

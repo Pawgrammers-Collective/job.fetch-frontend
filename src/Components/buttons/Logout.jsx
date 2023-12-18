@@ -1,20 +1,22 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
 
-function LogoutButton() {
+const LogoutButton = () => {
+  const { logout } = useAuth0();
 
-  const {
-    isAuthenticated,
-    logout
-  } = useAuth0();
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
 
-  function handleLogout() {
-    logout({ returnTo: window.location.origin });
-  }
-
-  return isAuthenticated &&
-      <button onClick={handleLogout}>Log out</button>
-    ;
-}
+  return (
+    <button className="button__logout" onClick={handleLogout}>
+      Log Out
+    </button>
+  );
+};
 
 export default LogoutButton;
