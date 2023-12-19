@@ -1,17 +1,13 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-// import { useAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './app.css'
 import Home from './Components/Home';
-import NavBarButtons from './Components/buttons/NavBarButtons';
-// import Footer from './Footer';
-// import AboutUs from './Components/AboutUs';
-// import Login from './Components/buttons/Login.jsx';
-// import Logout from './Components/buttons/Logout.jsx';
-import axios from 'axios';
-// import Profile from './Components/Profile';
-
+import AboutUs from './Components/AboutUs';
+import UserProfile from './Components/UserProfile.jsx';
+import Footer from './Footer.jsx'
+import Header from './Header.jsx'
+import LandingPage from './Components/LandingPage'; 
 
 
 function App(props) {
@@ -20,7 +16,7 @@ function App(props) {
   return (
     <>
     <Router>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route
             exact path="/Home"
@@ -28,23 +24,23 @@ function App(props) {
             >
           </Route>
           <Route
-            exact path="/"
-            element={<NavBarButtons />}
+            exact
+            path="/"
+            element={<LandingPage />} 
+          />
+          <Route
+            exact path="/profile"
+            element={<UserProfile />}
+            >
+          </Route>
+          <Route 
+            exact path="/about-us"
+            element={<AboutUs />}
             >
           </Route>
         </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
-      {/* <button onClick={fetchDogs}>Get Some Dogs</button>
-      <AuthButtons/>
-      <hr />
-      {
-        props.auth0.isAuthenticated &&
-        <>
-          <Dogs/>
-        </>
-      }
-       */}
     </>
   )
 }

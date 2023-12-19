@@ -1,8 +1,8 @@
 [
   {
-    "name": "Brendan Huddleston",
-    "description": "Brendan, a 25-year-old originally from Virginia, now considers Fort Worth his home. He proudly served in the US Army for six years, with postings in Colorado and Kansas. Over the last few months, he has been self-teaching HTML, CSS, and JavaScript. Additionally, Brendan holds certifications in AWS Cloud Practitioner and Professional Scrum Master I.",
-    "img": "img/brendanHeadshot.jpeg"
+    "name": "Kyle Aleman",
+    "description": "His name is Kyle",
+    "img": "img/kyleHeadshot.jpg"
   },
   {
     "name": "Johnny Backus",
@@ -14,9 +14,10 @@
     "description": "Xin always wanted to get into acting since a kid. She has the opportunity to do that now, but alas, it's not quite that sustainable, so she is learning to code hoping to get into the tech field to make money.",
     "img": "img/xinHeadshot.jpeg"
   },
+
   {
-    "name": "Kyle Aleman",
-    "description": "His name is Kyle",
-    "img": "img/kyleHeadshot.jpg"
+    "name": "Brendan Huddleston",
+    "description": "Brendan, a 25-year-old originally from Virginia, now considers Fort Worth his home. He proudly served in the US Army for six years, with postings in Colorado and Kansas. Over the last few months, he has been self-teaching HTML, CSS, and JavaScript. Additionally, Brendan holds certifications in AWS Cloud Practitioner and Professional Scrum Master I.",
+    "img": "img/brendanHeadshot.jpeg"
   }
 ]
