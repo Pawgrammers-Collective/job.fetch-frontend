@@ -13,7 +13,7 @@ function Header() {
           <Navbar.Brand as={Link} to="/Home">
             Job.fetch( )
           </Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav className="navLinks">
             <Nav.Link as={Link} to="/Home">
               Home
             </Nav.Link>
