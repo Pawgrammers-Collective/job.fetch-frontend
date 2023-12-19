@@ -5,9 +5,11 @@ import LogoutButton from "./Logout";
 
 const AuthButtons = () => {
   const { isAuthenticated } = useAuth0();
-console.log(isAuthenticated);
+
+  console.log(isAuthenticated);
+
   return (
-    <div className="nav-bar__buttons">
+    <div className="authbuttons">
       {!isAuthenticated && (
         <>
           <LoginButton />

@@ -5,7 +5,8 @@ import Home from './Components/Home';
 import AuthButtons from './Components/buttons/AuthButtons';
 import AboutUs from './Components/AboutUs';
 import UserProfile from './Components/UserProfile.jsx';
-
+import Footer from './Footer.jsx'
+import Header from './Header.jsx'
 
 
 function App(props) {
@@ -14,7 +15,7 @@ function App(props) {
   return (
     <>
     <Router>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route
             exact path="/Home"
@@ -32,12 +33,12 @@ function App(props) {
             >
           </Route>
           <Route 
-            exact path="/about"
+            exact path="/about-us"
             element={<AboutUs />}
             >
           </Route>
         </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
     </>
   )

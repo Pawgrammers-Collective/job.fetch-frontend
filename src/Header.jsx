@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { withAuth0 } from "@auth0/auth0-react";
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-import AboutUs from "./Components/AboutUs";
-import Profile from "./Components/Profile";
+import AuthButtons from "./Components/buttons/AuthButtons";
+import { Link } from "react-router-dom";
 
-
-function Header({ auth0 }) {
+function Header() {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>Job.fetch( )</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-
-              <Nav.Link href="/profile">My Jobs</Nav.Link>
-
-              {auth0.isAuthenticated ? <Profile /> : <h2>Please login</h2>}
-              {auth0.isAuthenticated ? <LogoutButton /> : <LoginButton />}
-
-              <Nav.Link href="/about-us">About Us</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+          <Navbar.Brand as={Link} to="/Home">
+            Job.fetch( )
+          </Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/Home">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/profile">
+              Your Profile
+            </Nav.Link>
+            <Nav.Link as={Link} to="/about-us">
+              About Us
+            </Nav.Link>
+            <AuthButtons />
+          </Nav>
         </Container>
       </Navbar>
     </>
