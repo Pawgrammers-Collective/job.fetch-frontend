@@ -10,7 +10,7 @@ function Header() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to="/Home">
+          <Navbar.Brand as={Link} to="/search">
             Job.fetch( )
           </Navbar.Brand>
           <Nav className="navLinks">
