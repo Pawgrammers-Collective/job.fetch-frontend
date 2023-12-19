@@ -16,6 +16,7 @@ const url = import.meta.env.VITE_SERVER_URL;
 function App(props) {
   // console.log(props)
   const [city, setCity] = useState('');
+  const [jobs, setJobs] = useState([]);
 
   function handleSearch(searchInput) {
     console.log(searchInput);
@@ -28,6 +29,7 @@ function App(props) {
     try {
       let response = await axios.get(`${url}/jobs?location=${city}`);
       console.log(response.data);
+      setJobs(response.data);
     } catch(error) {
         console.error('Error getting jobs:', error.message);
     }
@@ -45,7 +47,7 @@ function App(props) {
           />
           <Route
             exact path="/Home"
-            element={<Home />}
+            element={<Home jobs = {jobs} />}
             >
           </Route>
           <Route
