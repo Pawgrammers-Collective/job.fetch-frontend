@@ -28,7 +28,7 @@ function App(props) {
             >
           </Route>
           <Route
-            exact path="/"
+            exact path="/profile"
             element={<NavBarButtons />}
             >
           </Route>
