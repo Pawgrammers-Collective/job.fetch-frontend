@@ -1,4 +1,4 @@
-.about-container {
+.aboutcontainer {
   margin: 20px 20px 20px 20px;
   text-align: center;
   display: grid;
@@ -10,18 +10,18 @@
   gap: 50px;
 }
 
-.profile-img {
+.profileimg {
   /* width: 400px; */
   height: 80%;
   object-fit: contain;
 }
 
-.about-card:hover {
+.aboutcard:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
 
-.about-card {
+.aboutcard {
   width: 300px;
 height: 300px; 
 

@@ -3,7 +3,7 @@ import aboutUs from '../assets/AboutUs.json';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import './aboutus.css'; 
+import styles from './aboutus.module.css'
 
 function AboutUs() {
   const [selectedPerson, setSelectedPerson] = useState(null);
