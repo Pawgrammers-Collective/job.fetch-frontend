@@ -20,13 +20,13 @@ The platform should demonstrate the key features of job search, filtering, and s
 ### Wireframes 
 
 1. Homepage Wireframe
-![Homepage wireframe](img/homepage-wireframe.png)
+![Homepage wireframe](public/img/homepage-wireframe.png)
 
 2. About Us Wireframe
-![About us wireframe](img/aboutus-wireframe.png)
+![About us wireframe](public/img/aboutus-wireframe.png)
 
 3. About Us Wireframe
-![Saved jobs wireframe](img/savedjobs-wireframe.png)
+![Saved jobs wireframe](public/img/savedjobs-wireframe.png)
 
 ### User Stories
 
