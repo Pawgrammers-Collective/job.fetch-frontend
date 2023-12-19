@@ -23,12 +23,12 @@ function App(props) {
         {/* <Header /> */}
         <Routes>
           <Route
-            exact path="/"
+            exact path="/Home"
             element={<Home />}
             >
           </Route>
           <Route
-            exact path="/profile"
+            exact path="/"
             element={<NavBarButtons />}
             >
           </Route>
