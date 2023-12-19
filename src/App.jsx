@@ -9,13 +9,14 @@ import NavBarButtons from './Components/buttons/NavBarButtons';
 // import AboutUs from './Components/AboutUs';
 // import Login from './Components/buttons/Login.jsx';
 // import Logout from './Components/buttons/Logout.jsx';
-
+import axios from 'axios';
 // import Profile from './Components/Profile';
-// import AuthButtons from './src/Buttons/AuthButtons.jsx';
+
 
 
 function App(props) {
   console.log(props)
+
   return (
     <>
     <Router>
