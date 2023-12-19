@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// import { useAuth0 } from '@auth0/auth0-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Components/Home';
+import NavBarButtons from './Components/buttons/NavBarButtons';
+// import Footer from './Footer';
+// import AboutUs from './Components/AboutUs';
+// import Login from './Components/buttons/Login.jsx';
+// import Logout from './Components/buttons/Logout.jsx';
+import axios from 'axios';
+// import Profile from './Components/Profile';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+
+function App(props) {
+  console.log(props)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Router>
+        {/* <Header /> */}
+        <Routes>
+          <Route
+            exact path="/"
+            element={<Home />}
+            >
+          </Route>
+          <Route
+            exact path="/profile"
+            element={<NavBarButtons />}
+            >
+          </Route>
+        </Routes>
+      {/* <Footer /> */}
+    </Router>
+      {/* <button onClick={fetchDogs}>Get Some Dogs</button>
+      <AuthButtons/>
+      <hr />
+      {
+        props.auth0.isAuthenticated &&
+        <>
+          <Dogs/>
+        </>
+      }
+       */}
     </>
   )
 }
-
-export default App
+export default App;
