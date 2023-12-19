@@ -4,7 +4,7 @@ function LandingPage() {
   return (
     <div>
       <h2>Welcome to Job.fetch( )</h2>
-      <p>Please log in to access the full content and features of the site.</p>
+      <p>Please log in to start finding a job!</p>
     </div>
   );
 }
