@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles/CoverLetter.module.css';
 
 function CoverLetter(props) {
   const handleSave = () => {
@@ -9,13 +10,13 @@ function CoverLetter(props) {
   console.log('Cover Letter Component - Cover Letter:', props.coverLetter);
 
   return (
-    <>
+    <div className={styles.CoverLetter}>
+      <div className={styles.Content}>
       <h2>Cover Letter</h2>
-      <div>
         <p>{props.coverLetter.coverLetter}</p>
         <button onClick={handleSave}>Save this Cover Letter</button>
       </div>
-    </>
+    </div>
   );
 }
 
