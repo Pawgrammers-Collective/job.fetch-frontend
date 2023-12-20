@@ -45,7 +45,7 @@ console.log('Cover letter get', response);
   function handleSearch(searchInput) {
     console.log(searchInput);
     setCity(searchInput);
-    getJobs(city);
+    getJobs(searchInput);
   }
 
   async function getJobs(city) {
