@@ -18,22 +18,21 @@ const url = import.meta.env.VITE_SERVER_URL;
 function App(props) {
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
-  const [coverLetters, setCoverLetters] = useState({});
+  const [coverLetters, setCoverLetters] = useState([]);
+  const [savedCoverLetters, setSaveCoverLetters] = useState([]);
 
-  async function handleSaveCoverLetter(jobId, jobTitle, jobDescription) {
+  async function handleSaveCoverLetter(jobTitle, jobDescription) {
     try {
       const response = await axios.get(`${url}/cover`, {
         params: {
           jobTitle,
           jobDescription,
         },
-      });
+      }
+      );
+      setCoverLetters(response.data);
+console.log('Cover letter get', response);
 
-      const coverLetter = response.data.coverLetter;
-      setCoverLetters((prevCoverLetters) => ({
-        ...prevCoverLetters,
-        [jobId]: coverLetter,
-      }));
     } catch (error) {
       console.error('Error generating cover letter:', error);
     }
@@ -68,7 +67,10 @@ function App(props) {
           />
           <Route
             exact path="/Home"
-            element={<Home jobs={jobs} onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} />}
+            element={<Home 
+              jobs={jobs}
+               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} 
+               />}
           />
           <Route
             exact

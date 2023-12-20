@@ -1,18 +1,18 @@
 import React from 'react';
 
-function CoverLetter({ onSave, coverLetter }) {
+function CoverLetter(props) {
   const handleSave = () => {
-    console.log('Saving cover letter:', coverLetter);
-    onSave(coverLetter);
+    console.log('Saving cover letter:', props.coverLetter);
+    onSave(props.coverLetter);
   };
 
-  console.log('Cover Letter Component - Cover Letter:', coverLetter);
+  console.log('Cover Letter Component - Cover Letter:', props.coverLetter);
 
   return (
     <>
       <h2>Cover Letter</h2>
       <div>
-        <p>{coverLetter}</p>
+        <p>{props.coverLetter.coverLetter}</p>
         <button onClick={handleSave}>Save this Cover Letter</button>
       </div>
     </>
