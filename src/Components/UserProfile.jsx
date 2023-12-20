@@ -2,6 +2,8 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import SavedJobsAccordian from "./SavedJobsAccordian";
+
+
 function UserProfile(props) {
   const { user, isAuthenticated } = useAuth0();
   console.log(props.savedJobs);
