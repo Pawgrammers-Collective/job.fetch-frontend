@@ -15,7 +15,6 @@ function Home(props) {
         <>
       <div style={{marginLeft: '46%'}}>
           <SearchForm handleSearch={props.handleSearch} />
-
         </div>
           <div
             style={{
