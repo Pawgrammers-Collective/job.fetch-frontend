@@ -10,13 +10,16 @@ function Header() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to="/Home">
+          <Navbar.Brand as={Link} to="/">
             Job.fetch( )
           </Navbar.Brand>
           <Nav className="navLinks">
             <Nav.Link as={Link} to="/Home">
               Home
             </Nav.Link>
+            <Navbar.Brand as={Link} to="/search">
+           Job Search
+          </Navbar.Brand>
             <Nav.Link as={Link} to="/profile">
               Your Profile
             </Nav.Link>
