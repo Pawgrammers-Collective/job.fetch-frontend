@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
+import Button from 'react-bootstrap/Button';
+
 
 
 function SavedJobsAccordian(props) {
@@ -13,7 +15,14 @@ function SavedJobsAccordian(props) {
           return (
             <>
               <Accordion.Item eventKey={value._id}>
-                <Accordion.Header>{value.jobData.title}</Accordion.Header>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ flex: 1 }}>
+                    <Accordion.Header>
+                      {value.jobData.title}
+                    </Accordion.Header>
+                  </div>
+                  <Button variant="danger">Delete</Button>
+                </div>
                 <Accordion.Body>
                   <Accordion.Item eventKey={{idx}}>
                     <Accordion.Header>Job Description</Accordion.Header>
