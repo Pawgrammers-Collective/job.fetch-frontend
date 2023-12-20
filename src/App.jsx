@@ -104,15 +104,10 @@ console.log('Cover letter get', response);
 
             element={<Home 
               jobs={jobs}
-               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave = {handleSave}
+               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave = {handleSave} handleSearch={handleSearch}
                />}
           />
 
-          <Route
-            exact
-            path="/search"
-            element={<SearchForm handleSearch={handleSearch} />}
-          />
 
           <Route
             exact path="/profile"

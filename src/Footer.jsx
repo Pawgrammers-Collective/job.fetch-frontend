@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const Footer = () => {
   return (
-    <Navbar expand="lg" bg="dark" variant="dark">
+    <Navbar expand="lg" bg="dark" variant="dark" >
       <Navbar.Brand>&copy; Pawgrammers Collective</Navbar.Brand>
     </Navbar>
   );
