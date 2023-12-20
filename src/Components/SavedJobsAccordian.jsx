@@ -4,8 +4,6 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Button from 'react-bootstrap/Button';
 
-
-
 function SavedJobsAccordian(props) {
   console.log(props.savedJobs);
   return (
