@@ -92,11 +92,13 @@ console.log('Cover letter get', response);
       <Router>
         <Header />
         <Routes>
+
           <Route
             exacts
             path="/"
             element={<LandingPage />}
           />
+
           <Route
             exact path="/Home"
 
@@ -111,15 +113,17 @@ console.log('Cover letter get', response);
             path="/search"
             element={<SearchForm handleSearch={handleSearch} />}
           />
+
           <Route
             exact path="/profile"
-
             element={<UserProfile getSavedJobs = {getSavedJobs} savedJobs = {savedJobs} />}
-            >
+           />
 
+            <Route
             exact path="/about-us"
             element={<AboutUs />}
           />
+
         </Routes>
         <Footer />
       </Router>

@@ -1,14 +1,11 @@
-
 /* eslint-disable react/prop-types */
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import SavedJobsAccordian from "./SavedJobsAccordian";
-// import CoverLetter from "./CoverLetter";
 function UserProfile(props) {
-  const { user, isAuthenticated} = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   console.log(props.savedJobs);
   let getSavedJobs = props.getSavedJobs;
-
 
   useEffect(() => {
     console.log("Mount up");
@@ -16,8 +13,8 @@ function UserProfile(props) {
     return () => {
       console.log("Unmount");
     };
-  },[]);
-  
+  }, []);
+
   return (
     <>
       <h1>Your Profile</h1>
@@ -25,13 +22,10 @@ function UserProfile(props) {
       {isAuthenticated ? (
         <>
           <p>Welcome, {user.name}!</p>
-<SavedJobsAccordian savedJobs = {props.savedJobs} />
-
-//           <CoverLetter coverLetter={coverLetter} />
+          <SavedJobsAccordian savedJobs={props.savedJobs} />
         </>
       ) : (
         <p>Login to view your profile</p>
-
       )}
     </>
   );
