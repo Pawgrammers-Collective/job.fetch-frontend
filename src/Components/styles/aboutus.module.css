@@ -1,0 +1,135 @@
+/* body {
+  display: grid;
+} */
+
+.aboutContainer {
+  margin: 20px 20px 20px 20px;
+  /* text-align: center; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  /* grid-auto-flow: dense; */
+  justify-items: center;
+  gap: 50px;
+  /* grid-template-columns: 64px 1fr; */
+/* position: relative; */
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+}
+
+.aboutCard {
+    /* background: white; */
+    border-radius: 50px;
+    /* display: grid; */
+    /* position: relative; */
+    width: 100%;
+    /* height: 100%; */
+    max-width: 400px;
+    /* grid-template-columns: 1fr 20%; */
+    /* grid-template-rows: auto 1fr auto; */
+    position: relative;
+    background-color: #f7c331;
+}
+
+
+.cardBody{
+  width: 100%;
+  /* position: absolute; */
+  display: flex;
+ flex-direction: row;
+ padding-right: 0%;
+ justify-content: flex-end;
+}
+
+.profileImg {
+    object-fit: cover;
+    height: 94%;
+    width: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+
+.aboutCard:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.aboutCard:hover .buttonLabel {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 0.25s 0.1s ease-in opacity,
+    0.15s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) transform;
+}
+.aboutCard:hover .cardButton {
+  max-width: 100%;
+
+}
+
+
+/* 
+.buttonIcon {
+  display: grid;
+  place-items: center;
+  position: relative;
+  top: 1px;
+
+} */
+
+.aboutName {
+  /* height: 64px; */
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  font-size: 2em;
+  /* letter-spacing: 0.125em; */
+}
+
+.jobStatus {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1.8em;
+  padding-top: 50px;
+margin-right: 10px;
+  margin-left: 10px;
+}
+
+.cardButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  background: #f7882f;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 50px;
+  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); */
+  transition: 0.35s ease all;
+  overflow: hidden;
+  max-width: 35px;
+  max-height: 35px;
+
+
+}
+
+.buttonLabel {
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0 8px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: 0.25s ease all;
+}
+
+h3 {
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px 40px 10px 40px;
+}
