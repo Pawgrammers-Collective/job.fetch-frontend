@@ -23,6 +23,7 @@ function App(props) {
 
   const [coverLetters, setCoverLetters] = useState([]);
   const [savedCoverLetters, setSaveCoverLetters] = useState([]);
+  const [interviewQuestion, setInterviewQuestion] = useState('');
 
   async function handleSaveCoverLetter(jobTitle, jobDescription) {
     try {
@@ -38,6 +39,16 @@ console.log('Cover letter get', response);
 
     } catch (error) {
       console.error('Error generating cover letter:', error);
+    }
+  }
+
+  async function getInterviewQuestions(request, response){
+    try {
+      response = await axios.get(`${url}/interview`);
+      console.log(response.data);
+      // setInterviewQuestion(response.data)
+    } catch(e){
+      console.log('frontend interview questions no worky :(', e)
     }
   }
 
@@ -115,10 +126,9 @@ console.log('Cover letter get', response);
 
             element={<Home 
               jobs={jobs}
-              onSaveCoverLetter={handleSaveCoverLetter}
-              coverLetters={coverLetters}
-              handleSave = {handleSave}
-              handleSearch={handleSearch}
+
+               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave = {handleSave} handleSearch={handleSearch} getQuestions={getInterviewQuestions}
+
                />}
           />
 
