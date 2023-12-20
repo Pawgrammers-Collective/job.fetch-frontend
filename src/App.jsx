@@ -62,7 +62,7 @@ console.log('Cover letter get', response);
 
   function handleSave(job) {
     console.log(job);
-    setSavedJobs(job);
+    // setSavedJobs(job);
     saveJob(job);
   }
 
@@ -71,7 +71,7 @@ console.log('Cover letter get', response);
       try {
         let response = await axios.post(`${url}/jobs`, job);
         console.log("Server Response", response.data);
-        setSavedJobs(... savedJobs , response.data);
+        // setSavedJobs(... savedJobs , response.data);
       } catch (error) {
         console.error(error.message);
       }
@@ -82,6 +82,17 @@ console.log('Cover letter get', response);
       let response = await axios.get(`${url}/jobs/saved`);
       console.log(response.data);
       setSavedJobs(response.data);
+    } catch(error) {
+        console.error('Error getting jobs:', error.message);
+    }
+  }
+
+  async function deleteSavedJob(job){ 
+    console.log(job);
+    try {
+      let response = await axios.delete(`${url}/jobs/saved`);
+      console.log(response.data);
+      getSavedJobs();
     } catch(error) {
         console.error('Error getting jobs:', error.message);
     }
@@ -104,14 +115,19 @@ console.log('Cover letter get', response);
 
             element={<Home 
               jobs={jobs}
-               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave = {handleSave} handleSearch={handleSearch}
+              onSaveCoverLetter={handleSaveCoverLetter}
+              coverLetters={coverLetters}
+              handleSave = {handleSave}
+              handleSearch={handleSearch}
                />}
           />
 
-
           <Route
             exact path="/profile"
-            element={<UserProfile getSavedJobs = {getSavedJobs} savedJobs = {savedJobs} />}
+            element={<UserProfile 
+              getSavedJobs = {getSavedJobs} 
+              savedJobs = {savedJobs}
+              deleteSavedJob = {deleteSavedJob}/>}
            />
 
             <Route
