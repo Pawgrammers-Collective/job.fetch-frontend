@@ -1,11 +1,13 @@
 
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Button from 'react-bootstrap/Button';
 
 function SavedJobsAccordian(props) {
   console.log(props.savedJobs);
+  useEffect(() => {
+  }, [props.savedJobs]);
   return (
     <>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
