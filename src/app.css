@@ -46,12 +46,15 @@ align-self: center;
 }
 
 
-footer {
-  font-size: 1.5vw;
+.footerItems {
+  /* font-size: 1.5vw; */
   text-align: center;
   padding: 20px;
   margin-top: 30px;
   background: rgb(241, 145, 89);
-  position: fixed;
+  /* position: fixed; */
+  /* margin: 0 auto; */
+  align-self: center;
+  vertical-align: middle;
 }
 
