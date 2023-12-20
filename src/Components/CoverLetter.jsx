@@ -1,27 +1,20 @@
-import React, { useState } from "react";
+import React from 'react';
 
 function CoverLetter(props) {
-  const [isEditing, setIsEditing] = useState(false);
+  const handleSave = () => {
+    console.log('Saving cover letter:', props.coverLetter);
+    onSave(props.coverLetter);
+  };
 
-  function userEditing() {
-    setIsEditing(true);
-  }
-
-  // function handleChange(event) {}
+  console.log('Cover Letter Component - Cover Letter:', props.coverLetter);
 
   return (
     <>
-      <h2>This Is the cover letter</h2>
-      <div  onDoubleClick={userEditing}>
-        {
-          isEditing ? (
-            <input type="text" value={text} />
-          ) : (
-            <p>your paragraph tex</p>
-          )
-        }
+      <h2>Cover Letter</h2>
+      <div>
+        <p>{props.coverLetter.coverLetter}</p>
+        <button onClick={handleSave}>Save this Cover Letter</button>
       </div>
-      <button>Save this Cover Letter</button>
     </>
   );
 }
