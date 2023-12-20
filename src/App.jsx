@@ -18,6 +18,9 @@ const url = import.meta.env.VITE_SERVER_URL;
 function App(props) {
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
+
+  const [savedJobs, setSavedJobs] = useState([]);
+
   const [coverLetters, setCoverLetters] = useState([]);
   const [savedCoverLetters, setSaveCoverLetters] = useState([]);
 
@@ -38,6 +41,7 @@ console.log('Cover letter get', response);
     }
   }
 
+
   function handleSearch(searchInput) {
     console.log(searchInput);
     setCity(searchInput);
@@ -55,23 +59,53 @@ console.log('Cover letter get', response);
     }
   }
 
+
+  function handleSave(job) {
+    console.log(job);
+    setSavedJobs(job);
+    saveJob(job);
+  }
+
+  async function saveJob(job){
+    console.log(job);
+      try {
+        let response = await axios.post(`${url}/jobs`, job);
+        console.log("Server Response", response.data);
+        setSavedJobs(... savedJobs , response.data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+
+  async function getSavedJobs(){
+    try {
+      let response = await axios.get(`${url}/jobs/saved`);
+      console.log(response.data);
+      setSavedJobs(response.data);
+    } catch(error) {
+        console.error('Error getting jobs:', error.message);
+    }
+  }
+
   return (
     <>
       <Router>
         <Header />
         <Routes>
           <Route
-            exact
+            exacts
             path="/"
             element={<LandingPage />}
           />
           <Route
             exact path="/Home"
+
             element={<Home 
               jobs={jobs}
-               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} 
+               onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave = {handleSave}
                />}
           />
+
           <Route
             exact
             path="/search"
@@ -79,9 +113,10 @@ console.log('Cover letter get', response);
           />
           <Route
             exact path="/profile"
-            element={<UserProfile />}
-          />
-          <Route
+
+            element={<UserProfile getSavedJobs = {getSavedJobs} savedJobs = {savedJobs} />}
+            >
+
             exact path="/about-us"
             element={<AboutUs />}
           />

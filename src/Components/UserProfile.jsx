@@ -1,25 +1,39 @@
-// UserProfile.jsx
 
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import CoverLetter from "./CoverLetter";
+import SavedJobsAccordian from "./SavedJobsAccordian";
+// import CoverLetter from "./CoverLetter";
+function UserProfile(props) {
+  const { user, isAuthenticated} = useAuth0();
+  console.log(props.savedJobs);
+  let getSavedJobs = props.getSavedJobs;
 
-function UserProfile({ coverLetter }) {
-  const { user, isAuthenticated } = useAuth0();
 
+  useEffect(() => {
+    console.log("Mount up");
+    getSavedJobs();
+    return () => {
+      console.log("Unmount");
+    };
+  },[]);
+  
   return (
-    <div>
+    <>
       <h1>Your Profile</h1>
+
       {isAuthenticated ? (
         <>
           <p>Welcome, {user.name}!</p>
+<SavedJobsAccordian savedJobs = {props.savedJobs} />
 
-          <CoverLetter coverLetter={coverLetter} />
+//           <CoverLetter coverLetter={coverLetter} />
         </>
       ) : (
         <p>Login to view your profile</p>
+
       )}
-    </div>
+    </>
   );
 }
 
