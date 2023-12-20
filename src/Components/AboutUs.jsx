@@ -18,6 +18,7 @@ function AboutUs() {
 
   return (
     <>
+    <img src="public/img/logo.png" className={styles.logo}/>
       <h3>Hover to Know More About Us</h3>
       <div className={styles.aboutContainer}>
         {aboutUs.map((value, index) => (
@@ -26,11 +27,8 @@ function AboutUs() {
             className={styles.aboutCard}
             onClick={() => handleCardClick(value)}
           >
-            {/* <div className={styles.hoverButton}> */}
             <div className={styles.cardButton}>
-              {/* <div className={styles.buttonIcon}></div> */}
               <div className={styles.buttonLabel}>Click to Read More</div>
-              {/* </div> */}
             </div>
             <Card.Body className={styles.cardBody}>
               <Card.Title className={styles.jobStatus}>Open to Work</Card.Title>
