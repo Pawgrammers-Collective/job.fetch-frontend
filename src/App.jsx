@@ -17,7 +17,7 @@ function App(props) {
   // console.log(props)
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
-  const [savedJobs, setSavedJobs] = useState({});
+  const [savedJobs, setSavedJobs] = useState([]);
 
   function handleSearch(searchInput) {
     console.log(searchInput);
@@ -48,7 +48,6 @@ function App(props) {
         let response = await axios.post(`${url}/jobs`, job);
         console.log("Server Response", response.data);
         setSavedJobs(... savedJobs , response.data);
-        getSavedJobs();        
       } catch (error) {
         console.error(error.message);
       }
@@ -58,7 +57,7 @@ function App(props) {
     try {
       let response = await axios.get(`${url}/jobs/saved`);
       console.log(response.data);
-      // setSavedJobs(response.data);
+      setSavedJobs(response.data);
     } catch(error) {
         console.error('Error getting jobs:', error.message);
     }
@@ -86,7 +85,7 @@ function App(props) {
           />
           <Route
             exact path="/profile"
-            element={<UserProfile savedJobs = {savedJobs} />}
+            element={<UserProfile getSavedJobs = {getSavedJobs} savedJobs = {savedJobs} />}
             >
           </Route>
           <Route 

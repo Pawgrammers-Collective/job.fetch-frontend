@@ -18,8 +18,10 @@ function JobCard(props) {
             <Card.Body>
               <Card.Title>{value.title}</Card.Title>
               <Card.Text>{value.description}</Card.Text>
-              <Button variant="primary"
-              onclick = {() => props.handleSave (value)} >Save this Job! </Button>
+              <Button 
+              variant="primary"
+              type="submit"
+              onClick = {() => props.handleSave (value)} >Save this Job! </Button>
             </Card.Body>
           </Card>
         </div>
