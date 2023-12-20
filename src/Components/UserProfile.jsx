@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import SavedJobsAccordian from "./SavedJobsAccordian";
 function UserProfile(props) {
   const { user, isAuthenticated } = useAuth0();
-  console.log(props.savedJobs);
+  console.log(props);
   let getSavedJobs = props.getSavedJobs;
 
   useEffect(() => {
@@ -22,7 +22,9 @@ function UserProfile(props) {
       {isAuthenticated ? (
         <>
           <p>Welcome, {user.name}!</p>
-          <SavedJobsAccordian savedJobs={props.savedJobs} />
+          <SavedJobsAccordian 
+          savedJobs={props.savedJobs}
+          deleteSavedJob={props.deleteSavedJob} />
         </>
       ) : (
         <p>Login to view your profile</p>

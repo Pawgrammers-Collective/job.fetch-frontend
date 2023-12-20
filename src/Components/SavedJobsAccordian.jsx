@@ -21,7 +21,12 @@ function SavedJobsAccordian(props) {
                       {value.jobData.title}
                     </Accordion.Header>
                   </div>
-                  <Button variant="danger">Delete</Button>
+                  <Button 
+                    variant="danger"
+                    type="submit"
+                    onClick = {() => props.deleteSavedJob (value)}
+                    >Delete
+                  </Button>
                 </div>
                 <Accordion.Body>
                   <Accordion.Item eventKey={{idx}}>
