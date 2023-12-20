@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import CoverLetter from './CoverLetter';
-import JobAccordian from './JobAccordian';
 import JobCard from './JobCard';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -15,11 +14,9 @@ function Home(props) {
 
       {isAuthenticated && (
         <>
-       
-          <JobAccordian />
-
          
-          <JobCard />
+         
+          <JobCard jobs = {props.jobs} handleSave = {props.handleSave} />
 
 
           <CoverLetter />
