@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <>
+    <div>
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
@@ -16,10 +16,7 @@ function Header() {
           <Nav className="navLinks">
             <Nav.Link as={Link} to="/Home">
               Home
-            </Nav.Link>
-            <Navbar.Brand as={Link} to="/search">
-           Job Search
-          </Navbar.Brand>
+            </Nav.Link>         
             <Nav.Link as={Link} to="/profile">
               Your Profile
             </Nav.Link>
@@ -30,7 +27,7 @@ function Header() {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 }
 

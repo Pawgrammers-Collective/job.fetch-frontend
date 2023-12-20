@@ -27,7 +27,6 @@ function SearchForm(props) {
 
   return (
     <>
-      <h1>Job Search</h1>
       {isAuthenticated ? (
         <>
           <Button variant="primary" onClick={handleShow}>
