@@ -1,11 +1,13 @@
-// JobCard.jsx
-import React from "react";
+
+import React, { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import styles from "./styles/JobCard.module.css";
 
 function JobCard(props) {
-  console.log(props);
+  const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
+
 
   const splitDescription = (description) => {
     // Use a regular expression to find and replace the desired text with bold formatting
@@ -40,19 +42,30 @@ function JobCard(props) {
     <div className={styles.JobCardContainer}>
       {props.job.map((value, index) => (
         <Card key={index} className={styles.Card} style={{ width: "40em", height: "18rem" }}>
+
           <Card.Body>
             <Card.Title>{value.title}</Card.Title>
+
 
             {splitDescription(value.description).map((text, i) => (
               formatParagraph(text, i)
             ))}
 
+  
             <Button
               variant="primary"
               type="submit"
-              onClick={() => props.handleSave(value)}
+              onClick={() => {
+                props.handleSave(value);
+                const updatedIsSaved = [...isSaved];
+                updatedIsSaved[index] = !updatedIsSaved[index];
+                setIsSaved(updatedIsSaved);
+              }}
+              className={`${styles.saveButton} ${isSaved[index] ? styles.savedButton : ""}`}
+              disabled={isSaved[index]}
             >
-              Save this Job!
+              {isSaved[index] ? "Saved!" : "Save this Job!"}
+
             </Button>
 
             <Button

@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 
 const Footer = () => {
   return (
+
     <Navbar expand="lg" className="footer">
       <Container>
         <Navbar.Brand>
@@ -19,6 +20,7 @@ const Footer = () => {
           </div>
         </Navbar.Brand>
       </Container>
+
     </Navbar>
   );
 };

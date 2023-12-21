@@ -1,5 +1,4 @@
 
-
 import React, { useState } from "react";
 import CoverLetter from "./CoverLetter";
 import JobCard from "./JobCard";
@@ -11,7 +10,7 @@ function Home(props) {
 
   return (
     <>
-      <h1>Home</h1>
+      <h1 style={{margin: '0', textAlign: 'center'}}>Home</h1>
 
       {isAuthenticated ? (
         <>
@@ -21,7 +20,9 @@ function Home(props) {
         </div>
           <div
             style={{
-          
+              maxHeight: "700px",
+              overflowY: "auto",
+
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-around",
