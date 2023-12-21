@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from 'react-bootstrap/Spinner';
 import styles from "./styles/JobCard.module.css";
+import NewsModal from "./NewsModal.jsx";
 
 function JobCard(props) {
   const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
@@ -90,8 +91,9 @@ function JobCard(props) {
               ) : (
                 'Generate a Cover Letter!'
               )}
-
             </Button>
+            <NewsModal getNews={props.getNews} newsArticle={props.newsArticle} companyName={value.companyName}/>
+            {/* <Button onClick={()=>props.getNews(value.companyName)}>Get News for this Company</Button> */}
           </Card.Body>
         </Card>
       ))}
