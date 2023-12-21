@@ -6,7 +6,7 @@ import { propTypes } from 'react-bootstrap/esm/Image';
 
 function NewsModal(props) {
   const [show, setShow] = useState(false);
-
+  console.log("news article props:", props)
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true);
