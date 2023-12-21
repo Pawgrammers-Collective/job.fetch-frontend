@@ -1,0 +1,68 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap'); */
+
+
+button {
+  text-transform: uppercase;
+  border-radius: 2em;
+
+  align-self: center; 
+
+}
+
+
+.brand {
+  font-size: 3.5vw;
+}
+
+
+.navBar {
+  background: #99ced4;
+   font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 20px;
+  /* width: 100vw; */
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  margin: 10px;
+}
+
+.nav {
+  /* padding: 0.5em 0; */
+  display: flex;
+  justify-content: space-around;
+  width: 100vw; 
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.navLink {
+  color: #f9f9f9;
+  text-decoration: none;
+font-size: 2vw;
+/* text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000; */
+
+}
+
+
+.navLink:hover {
+  color:#080909;
+  text-decoration: none;
+  
+ 
+}
+
+  /* color: #6b7a8f
+  color: #4abdac
+  color: #f7882f
+  color: #f7c331
+  color: #dcc7aa
+  color: #99ced4
+    background: rgb(241, 145, 89);
+
+  
+  
+  */

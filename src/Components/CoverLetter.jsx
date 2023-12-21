@@ -1,21 +1,41 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState , useEffect }from 'react';
+import Button from "react-bootstrap/Button";
+import styles from './styles/CoverLetter.module.css';
 
 function CoverLetter(props) {
-  const handleSave = () => {
-    console.log('Saving cover letter:', props.coverLetter);
-    onSave(props.coverLetter);
-  };
-
-  console.log('Cover Letter Component - Cover Letter:', props.coverLetter);
+  console.log(props);
+  const [isSaved, setIsSaved] = useState(false);
+  useEffect(() => {
+    setIsSaved(false);
+  }, [props.coverLetter]);
 
   return (
-    <>
-      <h2>Cover Letter</h2>
-      <div>
-        <p>{props.coverLetter.coverLetter}</p>
-        <button onClick={handleSave}>Save this Cover Letter</button>
+    <div className={styles.CoverLetter}>
+      <div className={styles.Content}>
+        {props.coverLetter && (
+          <>
+            <p>{props.coverLetter.coverLetter}</p>
+            {props.genCLJobDesc && (
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={() => {
+                  props.saveCL(props.coverLetter, props.genCLJobDesc);
+                  setIsSaved(true);
+                }}
+                className={`${styles.saveButton} ${
+                  isSaved ? styles.savedButton : ""
+                }`}
+                disabled={isSaved}
+              >
+                {isSaved ? "Saved!" : "Save this Coverletter!"}
+              </Button>
+            )}
+          </>
+        )}
       </div>
-    </>
+    </div>
   );
 }
 

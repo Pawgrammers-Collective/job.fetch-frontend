@@ -1,0 +1,15 @@
+.CoverLetter {
+  position:relative;
+  width: 600px;
+  height: 700px;
+  /* background: white; */
+}
+
+.Content {
+  overflow-y: auto;
+  width: 600px;
+  height: 500px;
+  /* position: fixed; */
+  right: 150px;
+  padding: 12px;
+}

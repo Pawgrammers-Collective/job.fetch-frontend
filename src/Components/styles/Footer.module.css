@@ -1,0 +1,26 @@
+.footerItems {
+  /* font-size: 1.5vw; */
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  background: #99ced4;
+  /* position: fixed; */
+  /* margin: 0 auto; */
+  /* align-self: center;
+  vertical-align: middle; */
+  font-weight:bold ;
+  font-size: 1.5vw;
+  /* left: 0; */
+  bottom: 0;
+  width: 100%;
+  font-family: 'Kalam', cursive;
+}
+
+.footerItems img {
+  width:6vw;
+}
+
+/* .copyright{ */
+/* width: fit-content; */
+/* margin:auto; */
+/* } */

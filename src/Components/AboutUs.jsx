@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import aboutUs from '../assets/AboutUs.json';
-import Card from 'react-bootstrap/Card';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-// import styles from './aboutus.module.css'
+import React, { useState } from "react";
+import aboutUs from "../assets/AboutUs.json";
+import Card from "react-bootstrap/Card";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import styles from "./styles/aboutus.module.css";
 
 function AboutUs() {
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -18,29 +18,39 @@ function AboutUs() {
 
   return (
     <>
-        <h3>Click on an image to learn more</h3>
-    <div className='about-container'>
-      {aboutUs.map((value, index) => (
-        <Card
-          key={index}
-          className="about-card" 
-          onClick={() => handleCardClick(value)}
-        >
-          <Card.Img
-            className="profile-img" 
-            variant="top"
-            src={value.img}
-            alt={value.name}
-          />
-          <Card.Body>
-            <Card.Title>{value.name}</Card.Title>
-          </Card.Body>
-        </Card>
-      ))}
+    <img src="/img/logo.png" className={styles.logo}/>
+      <h3>Hover to Know More About Us</h3>
+      <div className={styles.aboutContainer}>
+        {aboutUs.map((value, index) => (
+          <Card
+            key={index}
+            className={styles.aboutCard}
+            onClick={() => handleCardClick(value)}
+          >
+            <div className={styles.cardButton}>
+              <div className={styles.buttonLabel}>Click to Read More</div>
+            </div>
+            <Card.Body className={styles.cardBody}>
+              <Card.Title className={styles.jobStatus}>Open to Work</Card.Title>
+
+              <div className="person">
+                <Card.Title className={styles.aboutName}>
+                  {value.name}
+                </Card.Title>
+                <Card.Img
+                  className={styles.profileImg}
+                  variant="top"
+                  src={value.img}
+                  alt={value.name}
+                />
+              </div>
+            </Card.Body>
+          </Card>
+        ))}
       </div>
 
       <Modal show={selectedPerson !== null} onHide={handleCloseModal}>
-        <Modal.Header >
+        <Modal.Header>
           <Modal.Title>{selectedPerson && selectedPerson.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{selectedPerson && selectedPerson.description}</Modal.Body>
@@ -55,4 +65,3 @@ function AboutUs() {
 }
 
 export default AboutUs;
-
