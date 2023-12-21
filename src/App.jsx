@@ -20,14 +20,13 @@ const url = import.meta.env.VITE_SERVER_URL;
 function App(props) {
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
-
   const [savedJobs, setSavedJobs] = useState([]);
-
   const [coverLetters, setCoverLetters] = useState([]);
-  const [savedCoverLetters, setSaveCoverLetters] = useState([]);
+  const [savedCLs, setSavedCLs] = useState([]);
+  const [genCLJobDesc, setGenCLJobDesc] = useState('');
   const [interviewQuestion, setInterviewQuestion] = useState('');
 
-  async function handleSaveCoverLetter(jobTitle, jobDescription) {
+  async function generateCL(jobTitle, jobDescription) {
     if (props.auth0.isAuthenticated) {
       let claim = await props.auth0.getIdTokenClaims();
       console.log(claim)
@@ -45,6 +44,7 @@ function App(props) {
       try {
         const response = await axios(config);
         setCoverLetters(response.data);
+        setGenCLJobDesc(jobDescription);
         console.log('Cover letter get', response);
 
       } catch (error) {
@@ -52,25 +52,71 @@ function App(props) {
       }
     }}
 
-    async function getInterviewQuestions(request, response) {
-      if (props.auth0.isAuthenticated) {
-        let claim = await props.auth0.getIdTokenClaims();
-        console.log(claim)
-        let token = claim.__raw;
-        const config = {
-          headers: { "Authorization": `Bearer ${token}` },
-          method: "get",
-          url: `${url}/interview`,
-        }
-        try {
-          response = await axios(config);
-          console.log(response.data);
-          // setInterviewQuestion(response.data)
-        } catch (e) {
-          console.log('frontend interview questions no worky :(', e)
+  async function saveCL(coverletter , jobDescription) {
+    console.log(coverletter);
+    console.log(jobDescription);
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "post",
+        url: `${url}/cover/saved`,
+        data: {
+          coverletter: coverletter,
+          jobDescription: jobDescription
         }
       }
+      try {
+        let response = await axios(config);
+        console.log("Server Response", response.data);
+        setSavedCLs(...savedCLs , response.data);
+      } catch (error) {
+        console.error(error.message);
+      }
     }
+  }
+
+  async function getSavedCLs() {
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "get",
+        url: `${url}/cover/saved`,
+      }
+      try {
+        let response = await axios(config);
+        console.log(response.data);
+        setSavedCLs(response.data);
+      } catch (error) {
+        console.error('Error getting coverletters:', error.message);
+      }
+    }
+  }
+
+  async function getInterviewQuestions(request, response) {
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "get",
+        url: `${url}/interview`,
+      }
+      try {
+        response = await axios(config);
+        console.log(response.data);
+        // setInterviewQuestion(response.data)
+      } catch (e) {
+        console.log('frontend interview questions no worky :(', e)
+      }
+    }
+  }
 
 
 
@@ -179,7 +225,7 @@ function App(props) {
     try {
       let response = await axios.delete(`${url}/jobs/${cover._id}`);
       console.log(response.data);
-      getSavedJobs();
+      getSavedCLs();
     } catch(error) {
         console.error('Error deleting Cover Letter:', error.message);
     }
@@ -198,13 +244,15 @@ function App(props) {
 
             <Route
               exact path="/Home"
-
               element={<Home
                 jobs={jobs}
-
-                onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave={handleSave} handleSearch={handleSearch} getQuestions={getInterviewQuestions}
-
-
+                generateCL={generateCL}
+                genCLJobDesc={genCLJobDesc}
+                saveCL={saveCL}
+                coverLetters={coverLetters}
+                handleSave={handleSave}
+                handleSearch={handleSearch}
+                getQuestions={getInterviewQuestions}
               />}
             />
             <Route
@@ -212,7 +260,10 @@ function App(props) {
               element={<UserProfile
                 getSavedJobs={getSavedJobs}
                 savedJobs={savedJobs}
-                deleteSavedJob={deleteSavedJob} />}
+                deleteSavedJob={deleteSavedJob}
+                getSavedCLs={getSavedCLs}
+                deleteSavedCL={deleteSavedCL} 
+                savedCLs={savedCLs}/>}
             />
 
             <Route

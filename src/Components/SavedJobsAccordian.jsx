@@ -5,8 +5,9 @@ import Button from 'react-bootstrap/Button';
 
 function SavedJobsAccordian(props) {
   console.log(props.savedJobs);
+  console.log(props.savedCLs);
   useEffect(() => {
-  }, [props.savedJobs]);
+  }, [props.savedJobs, props.savedCLs]);
   return (
     <>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
