@@ -13,7 +13,7 @@ function CoverLetter(props) {
   return (
     <div className={styles.CoverLetter}>
       <div className={styles.Content}>
-        <h2>Cover Letter</h2>
+        {/* <h2>Cover Letter</h2> */}
         <p>{props.coverLetter.coverLetter}</p>
         <Button
           variant="primary"
