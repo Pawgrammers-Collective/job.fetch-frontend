@@ -16,9 +16,7 @@ function SavedJobsAccordian(props) {
               <Accordion.Item eventKey={value._id}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ flex: 1 }}>
-                    <Accordion.Header>
-                      {value.jobData.title}
-                    </Accordion.Header>
+                    <Accordion.Header> {value.jobData.title} </Accordion.Header>
                   </div>
                   <Button 
                     variant="danger"
@@ -61,7 +59,28 @@ function SavedJobsAccordian(props) {
                     </Accordion.Body>
                   </Accordion.Item>
                   <Accordion.Item eventKey={`${idx}.${idx}.${idx}.${idx}`}>
-                    <Accordion.Header>Cover Letter</Accordion.Header>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ flex: 1 }}>
+                        <Accordion.Header> Cover Letter </Accordion.Header>
+                      </div>
+                      {value.jobData && value.jobData.coverLetter ? (
+                        <Button
+                          variant="danger"
+                          type="submit"
+                          onClick={() => props.deleteSavedCL(value)}
+                        >
+                          Delete
+                        </Button>
+                      ) : (
+                        <Button
+                        // the CreateAndSaveCoverLetter function is not yet defined
+                          onClick={() => props.CreateAndSaveCoverLetter(value.title, value.description)}
+                          variant="primary"
+                        >
+                          Generate a Cover Letter!
+                        </Button>
+                      )}
+                    </div>
                     <Accordion.Body>
                       {value.jobData && value.jobData.coverLetter && (
                         <p>{value.jobData.coverLetter}</p>

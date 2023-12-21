@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import styles from "./styles/JobCard.module.css";
 
 function JobCard(props) {
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
 
   return props.job.map((value, index) => {
     return (
@@ -21,12 +21,14 @@ function JobCard(props) {
               type="submit"
               onClick={() => {
                 props.handleSave(value);
-                setIsSaved(true);
+                const updatedIsSaved = [...isSaved];
+                updatedIsSaved[index] = !updatedIsSaved[index];
+                setIsSaved(updatedIsSaved);
               }}
-              className={`${styles.saveButton} ${isSaved ? styles.savedButton : ""}`}
-              disabled={isSaved}
+              className={`${styles.saveButton} ${isSaved[index] ? styles.savedButton : ""}`}
+              disabled={isSaved[index]}
             >
-              {isSaved ? "Saved!" : "Save this Job!"}
+              {isSaved[index] ? "Saved!" : "Save this Job!"}
             </Button>
 
             <Button

@@ -91,10 +91,21 @@ console.log('Cover letter get', response);
     console.log('deleting ',{job});
     try {
       let response = await axios.delete(`${url}/jobs/${job._id}`);
-      console.log(response.data);
+      console.log('deleting ',response.data);
       getSavedJobs();
     } catch(error) {
         console.error('Error deleting jobs:', error.message);
+    }
+  }
+
+  async function deleteSavedCL(cover){ 
+    console.log('deleting ',{cover});
+    try {
+      let response = await axios.delete(`${url}/jobs/${cover._id}`);
+      console.log(response.data);
+      getSavedJobs();
+    } catch(error) {
+        console.error('Error deleting Cover Letter:', error.message);
     }
   }
 
@@ -127,10 +138,11 @@ console.log('Cover letter get', response);
             element={<UserProfile 
               getSavedJobs = {getSavedJobs} 
               savedJobs = {savedJobs}
-              deleteSavedJob = {deleteSavedJob}/>}
+              deleteSavedJob = {deleteSavedJob}
+              deleteSavedCL = {deleteSavedCL}/>}
            />
 
-            <Route
+          <Route
             exact path="/about-us"
             element={<AboutUs />}
           />
