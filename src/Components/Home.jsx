@@ -28,6 +28,8 @@ function Home(props) {
               job={props.jobs}
               generateCL={props.generateCL}
               handleSave={props.handleSave}
+              newsArticle={props.newsArticle}
+              getNews={props.getNews}
             />
           </Col>
           <Col className={styles.letterContainer}>

@@ -94,6 +94,7 @@ function JobCard(props) {
                 'Generate a Cover Letter!'
               )}
             </Button>
+            console.log(value.companyName[])
             <NewsModal getNews={props.getNews} newsArticle={props.newsArticle} companyName={value.companyName}/>
             {/* <Button onClick={()=>props.getNews(value.companyName)}>Get News for this Company</Button> */}
           </Card.Body>

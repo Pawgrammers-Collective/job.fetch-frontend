@@ -252,7 +252,7 @@ function App(props) {
     console.log(config);
     try {
       let response = await axios(config);
-      console.log(response.data.articles[0]);
+      console.log( "news app.jsx", response.data.articles[0]);
       setNewsArticle(response.data.articles[0]);
     } catch(e) {
       console.log("no news for you :(", e);
