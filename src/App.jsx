@@ -149,6 +149,7 @@ function App(props) {
       }
     }
 
+
     async function deleteSavedJob(job) {
       console.log('deleting ', { job });
       if (props.auth0.isAuthenticated) {
@@ -170,12 +171,23 @@ function App(props) {
       }
     }
 
-    return (
-      <>
-        <Router>
-          <Header />
-          <Routes>
 
+  async function deleteSavedCL(cover){ 
+    console.log('deleting ',{cover});
+    try {
+      let response = await axios.delete(`${url}/jobs/${cover._id}`);
+      console.log(response.data);
+      getSavedJobs();
+    } catch(error) {
+        console.error('Error deleting Cover Letter:', error.message);
+    }
+  }
+
+  return (
+    <>
+      <Router>
+        <Header />
+        <Routes>
             <Route
               exacts
               path="/"
@@ -192,7 +204,6 @@ function App(props) {
 
               />}
             />
-
             <Route
               exact path="/profile"
               element={<UserProfile
@@ -214,3 +225,4 @@ function App(props) {
   }
 
   export default withAuth0(App);
+
