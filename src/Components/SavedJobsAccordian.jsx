@@ -61,13 +61,13 @@ function SavedJobsAccordian(props) {
                       </ul>
                     </Accordion.Body>
                   </Accordion.Item>
-                  <Accordion.Item eventKey={`${idx}.${idx}.${idx}.${idx}`}>
+                  {/* <Accordion.Item eventKey={`${idx}.${idx}.${idx}.${idx}`}>
 
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div style={{ flex: 1 }}>
                         <Accordion.Header> Cover Letter </Accordion.Header>
                       </div>
-                      {value.jobData && value.jobData.coverLetter ? (
+                      {value.jobData.description === props.savedCLs[any].jobDescription ? (
                         <Button
                           variant="danger"
                           type="submit"
@@ -89,6 +89,38 @@ function SavedJobsAccordian(props) {
                     <Accordion.Body>
                       {value.jobData && value.jobData.coverLetter && (
                         <p>{value.jobData.coverLetter}</p>
+                      )}
+                    </Accordion.Body>
+                  </Accordion.Item> */}
+                  <Accordion.Item eventKey={`${idx}.${idx}.${idx}.${idx}`}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ flex: 1 }}>
+                        <Accordion.Header> Cover Letter </Accordion.Header>
+                      </div>
+                      {props.savedCLs.find(cl => cl.jobDescription === value.jobData.description) ? (
+                        <Button
+                          variant="danger"
+                          type="submit"
+                          onClick={() => props.deleteSavedCL(value)}
+                        >
+                          Delete
+                        </Button>
+                      ) : (
+                        <Button
+                          // the CreateAndSaveCoverLetter function is not yet defined
+                          onClick={() => props.CreateAndSaveCoverLetter(value.title, value.description)}
+                          variant="primary"
+                        >
+                          Generate a Cover Letter!
+                        </Button>
+                      )}
+                    </div>
+
+                    <Accordion.Body>
+                      {props.savedCLs.find(cl => cl.jobDescription === value.jobData.description) ? (
+                        props.savedCLs.find(cl => cl.jobDescription === value.jobData.description).coverletter
+                      ) : (
+                        'No saved cover letter found'
                       )}
                     </Accordion.Body>
                   </Accordion.Item>

@@ -71,7 +71,7 @@ function App(props) {
       try {
         let response = await axios(config);
         console.log("Server Response", response.data);
-        setSavedCLs(...savedCLs , response.data);
+        setSavedCLs([...savedCLs , response.data]);
       } catch (error) {
         console.error(error.message);
       }
