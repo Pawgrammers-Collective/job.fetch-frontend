@@ -1,6 +1,4 @@
-
 import React, { useState } from "react";
-
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Spinner from 'react-bootstrap/Spinner';
@@ -8,12 +6,15 @@ import styles from "./styles/JobCard.module.css";
 
 function JobCard(props) {
   const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(Array(props.job.length).fill(false));
 
-  const handleClick = async (value) => {
-    setIsLoading(true);
+  const handleClick = async (value, index) => {
+    const updatedIsLoading = [...isLoading];
+    updatedIsLoading[index] = true;
+    setIsLoading(updatedIsLoading);
     await props.generateCL(value.title, value.description);
-    setIsLoading(false);
+    updatedIsLoading[index] = false;
+    setIsLoading(updatedIsLoading);
   };
 
   const splitDescription = (description) => {
@@ -75,8 +76,8 @@ function JobCard(props) {
 
             </Button>
 
-            <Button onClick={() => handleClick(value)} variant="primary">
-              {isLoading ? (
+            <Button onClick={() => handleClick(value, index)} variant="primary">
+              {isLoading[index] ? (
                 <>
                   <Spinner
                     as="span"
@@ -84,9 +85,9 @@ function JobCard(props) {
                     size="sm"
                     role="status"
                     aria-hidden="true"
-                    variante="success"
+                    variant="success"
                   />
-                  <span className="visually-hidden">Loading...</span>
+                  <span>Fetching your letter...</span>
                 </>
               ) : (
                 'Generate a Cover Letter!'
