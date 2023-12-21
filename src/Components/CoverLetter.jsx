@@ -1,3 +1,4 @@
+// CoverLetter.jsx
 import React from 'react';
 import styles from './styles/CoverLetter.module.css';
 
@@ -12,7 +13,9 @@ function CoverLetter(props) {
   return (
     <div className={styles.CoverLetter}>
       <div className={styles.Content}>
-      <h2>Cover Letter</h2>
+
+        <h2>Cover Letter</h2>
+
         <p>{props.coverLetter.coverLetter}</p>
         <button onClick={handleSave}>Save this Cover Letter</button>
       </div>

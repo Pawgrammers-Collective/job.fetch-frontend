@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import CoverLetter from "./CoverLetter";
 import JobCard from "./JobCard";
@@ -15,11 +16,13 @@ function Home(props) {
         <>
       <div style={{marginLeft: '46%'}}>
           <SearchForm handleSearch={props.handleSearch} />
+
         </div>
           <div
             style={{
               maxHeight: "700px",
               overflowY: "auto",
+
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-around",
