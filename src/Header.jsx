@@ -4,26 +4,29 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import AuthButtons from "./Components/buttons/AuthButtons";
 import { Link } from "react-router-dom";
+import styles from "./Components/styles/Header.module.css";
+
+
 
 function Header() {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar className={styles.navBar}>
         <Container>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={Link} to="/" className={styles.brand}>
             Job.fetch( )
           </Navbar.Brand>
-          <Nav className="navLinks">
-            <Nav.Link as={Link} to="/Home">
+          <Nav className={styles.nav}>
+            <Nav.Link as={Link} className={styles.navLink} to="/Home ">
               Home
             </Nav.Link>         
-            <Nav.Link as={Link} to="/profile">
+            <Nav.Link as={Link} className={styles.navLink} to="/profile">
               Your Profile
             </Nav.Link>
-            <Nav.Link as={Link} to="/about-us">
+            <Nav.Link as={Link} className={styles.navLink} to="/about-us">
               About Us
             </Nav.Link>
-            <AuthButtons />
+            <AuthButtons className={styles.authbuttons}/>
           </Nav>
         </Container>
       </Navbar>
