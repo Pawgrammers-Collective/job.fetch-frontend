@@ -48,13 +48,24 @@ align-self: center;
 
 .footerItems {
   /* font-size: 1.5vw; */
-  text-align: center;
+  /* text-align: center; */
   padding: 20px;
   margin-top: 30px;
   background: rgb(241, 145, 89);
   /* position: fixed; */
   /* margin: 0 auto; */
-  align-self: center;
-  vertical-align: middle;
+  /* align-self: center;
+  vertical-align: middle; */
+  font-weight:bold ;
+  font-size: 1.5em;
+  
 }
 
+.footerItems img {
+  width:10vw;
+}
+
+.copyright{
+width: fit-content;
+margin:auto;
+}
