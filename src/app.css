@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   background: #ffeba7;
   /* padding: 0;
   margin: 0; */
@@ -22,6 +22,8 @@ h1 {
   /* outline: 10px ridge rgb(0, 0, 0); */
   width: 100vw;
   vertical-align: middle;
+  font-family: 'Kalam', cursive;
+
 }
 
 

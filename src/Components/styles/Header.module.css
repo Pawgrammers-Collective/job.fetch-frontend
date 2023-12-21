@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
 
 .authbuttons{
 align-self: center; 
@@ -6,7 +6,8 @@ color: antiquewhite;
 }
 
 .brand {
-  font-size: 2em;
+  font-size: 3.5vw;
+  font-family: 'Kalam', cursive;
 }
 
 
@@ -16,8 +17,10 @@ color: antiquewhite;
   font-size: 1.5em;
   border-radius: 20px;
   /* width: 100vw; */
-  margin-left: 10px;
-  margin-right: 10px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  margin: 10px;
+  font-family: 'Kalam', cursive;
 }
 
 .nav {
@@ -30,7 +33,8 @@ color: antiquewhite;
 .navLink {
   color: #48586d;
   text-decoration: none;
-font-size: 1.2vw;
+font-size: 2vw;
+
 
 }
 
