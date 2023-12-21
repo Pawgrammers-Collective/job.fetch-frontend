@@ -1,9 +1,7 @@
-/* body {
- margin:0;
-display: flex;
-align-items: center;
-justify-content: center;
-} */
+body {
+  font-family: 'Kalam', cursive;
+
+}
 
 .aboutContainer {
   margin: 2vw 2vw 2vw 2vw;
@@ -142,6 +140,7 @@ h3 {
   width:fit-content;
   align-self: center;
   margin: auto;
+
   /* padding: 10px 40px 10px 40px; */
 }
 
