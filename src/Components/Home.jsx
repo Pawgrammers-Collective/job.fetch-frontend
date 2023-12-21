@@ -41,6 +41,7 @@ function Home(props) {
           </Col>
         </Row>
         </Container>
+
         </>
       ) : (
         <p>Login to view content</p>
