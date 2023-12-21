@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React, { useEffect , useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 function SavedJobsAccordian(props) {
   console.log(props);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
   }, [props.savedJobs, props.savedCLs]);
+  
   return (
     <>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
@@ -78,12 +81,29 @@ function SavedJobsAccordian(props) {
                         ) : (
                           <Button
                             onClick={async () => {
+                              setIsLoading(true);
                               const generatedCL = await props.generateCL(value.jobData.title, value.jobData.description);
                               props.saveCL(generatedCL, value.jobData.description);
+                              setIsLoading(false);
                             }}
                             variant="primary"
                           >
-                            Generate a Cover Letter!
+                            {isLoading ? (
+                              <>
+                                <Spinner
+                                  as="span"
+                                  animation="border"
+                                  size="sm"
+                                  role="status"
+                                  aria-hidden="true"
+                                  variant="success"
+                                />
+                                <span className="visually-hidden">Loading...</span>
+                              </>
+                            ) : (
+                              'Generate a Cover Letter!'
+                            )}
+
                           </Button>
                         )}
                     </div>

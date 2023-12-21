@@ -84,6 +84,7 @@ function JobCard(props) {
                     size="sm"
                     role="status"
                     aria-hidden="true"
+                    variante="success"
                   />
                   <span className="visually-hidden">Loading...</span>
                 </>
