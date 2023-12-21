@@ -195,9 +195,10 @@ function App(props) {
       url: `${url}/news`,
       data: company,
     }
+    console.log(config);
     try {
       let response = await axios.get(config);
-      console.log(response.data);
+      console.log(response);
     } catch(e) {
       console.log("no news for you :(", e);
     }
