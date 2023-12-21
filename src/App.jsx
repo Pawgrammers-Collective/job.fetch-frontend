@@ -21,7 +21,7 @@ function App(props) {
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
   const [savedJobs, setSavedJobs] = useState([]);
-  const [coverLetters, setCoverLetters] = useState([]);
+  const [coverLetter, setCoverLetter] = useState([]);
   const [savedCLs, setSavedCLs] = useState([]);
   const [genCLJobDesc, setGenCLJobDesc] = useState('');
   const [interviewQuestion, setInterviewQuestion] = useState('');
@@ -42,11 +42,12 @@ function App(props) {
         }
       }
       try {
-        const response = await axios(config);
-        setCoverLetters(response.data);
+        let response = await axios(config);
+        setCoverLetter(response.data);
         setGenCLJobDesc(jobDescription);
-        console.log('Cover letter get', response);
-
+        console.log('response.data is ', response.data);
+        console.log('coverLetter is ', coverLetter);
+        return response.data;
       } catch (error) {
         console.error('Error generating cover letter:', error);
       }
@@ -54,7 +55,7 @@ function App(props) {
 
   async function saveCL(coverletter , jobDescription) {
     console.log(coverletter);
-    console.log(jobDescription);
+    // console.log(jobDescription);
     if (props.auth0.isAuthenticated) {
       let claim = await props.auth0.getIdTokenClaims();
       console.log(claim)
@@ -71,7 +72,7 @@ function App(props) {
       try {
         let response = await axios(config);
         console.log("Server Response", response.data);
-        setSavedCLs(...savedCLs , response.data);
+        setSavedCLs([...savedCLs , response.data]);
       } catch (error) {
         console.error(error.message);
       }
@@ -198,36 +199,45 @@ function App(props) {
     }
 
 
-    async function deleteSavedJob(job) {
-      console.log('deleting ', { job });
-      if (props.auth0.isAuthenticated) {
-        let claim = await props.auth0.getIdTokenClaims();
-        console.log(claim)
-        let token = claim.__raw;
-        const config = {
-          headers: { "Authorization": `Bearer ${token}` },
-          method: "delete",
-          url: `${url}/jobs/${job._id}`,
-        }
-        try {
-          let response = await axios(config);
-          console.log(response.data);
-          getSavedJobs();
-        } catch (error) {
-          console.error('Error deleting jobs:', error.message);
-        }
+  async function deleteSavedJob(job) {
+    console.log('deleting ', { job });
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "delete",
+        url: `${url}/jobs/${job._id}`,
+      }
+      try {
+        let response = await axios(config);
+        console.log(response.data);
+        getSavedJobs();
+      } catch (error) {
+        console.error('Error deleting jobs:', error.message);
       }
     }
+  }
 
-
-  async function deleteSavedCL(cover){ 
-    console.log('deleting ',{cover});
-    try {
-      let response = await axios.delete(`${url}/jobs/${cover._id}`);
-      console.log(response.data);
-      getSavedCLs();
-    } catch(error) {
-        console.error('Error deleting Cover Letter:', error.message);
+  async function deleteSavedCL(cover) {
+    console.log('deleting ', { cover });
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "delete",
+        url: `${url}/cover/saved/${cover._id}`,
+      }
+      try {
+        let response = await axios(config);
+        console.log(response.data);
+        getSavedCLs();
+      } catch (error) {
+        console.error('Error deleting jobs:', error.message);
+      }
     }
   }
 
@@ -249,7 +259,7 @@ function App(props) {
                 generateCL={generateCL}
                 genCLJobDesc={genCLJobDesc}
                 saveCL={saveCL}
-                coverLetters={coverLetters}
+                coverLetter={coverLetter}
                 handleSave={handleSave}
                 handleSearch={handleSearch}
                 getQuestions={getInterviewQuestions}
@@ -261,6 +271,8 @@ function App(props) {
                 getSavedJobs={getSavedJobs}
                 savedJobs={savedJobs}
                 deleteSavedJob={deleteSavedJob}
+                generateCL={generateCL}
+                saveCL={saveCL}
                 getSavedCLs={getSavedCLs}
                 deleteSavedCL={deleteSavedCL} 
                 savedCLs={savedCLs}/>}

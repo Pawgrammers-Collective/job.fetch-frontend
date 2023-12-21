@@ -34,6 +34,8 @@ function UserProfile(props) {
           <SavedJobsAccordian 
           savedJobs={props.savedJobs}
           deleteSavedJob={props.deleteSavedJob}
+          generateCL={props.generateCL}
+          saveCL={props.saveCL}
           savedCLs={props.savedCLs}
           getSavedCLs={props.getSavedCLs}
           deleteSavedCL={props.deleteSavedCL} />
