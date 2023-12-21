@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from "./Components/styles/Footer.module.css";
 
 const Footer = () => {
   return (
-      <div className="footerItems">
+      <div className={styles.footerItems}>
         <img
-          alt=""
+          alt="Pawgrammers collective logo"
           src="./img/logo.png"
 
         />

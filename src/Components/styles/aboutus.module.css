@@ -6,13 +6,14 @@ justify-content: center;
 } */
 
 .aboutContainer {
-  margin: 20px 20px 20px 20px;
+  margin: 2vw 2vw 2vw 2vw;
   /* text-align: center; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+/* height: 100vh;  */
+/* width: 100vw; */
 
-  /* grid-auto-flow: dense; */
   justify-items: center;
   gap: 50px;
   /* grid-template-columns: 64px 1fr; */
@@ -26,9 +27,9 @@ justify-content: center;
     border-radius: 50px;
     /* display: grid; */
     /* position: relative; */
-    width: 100%;
+    /* width: auto; */
     /* height: 100%; */
-    max-width: 400px;
+    /* max-width: fit-content; */
     /* grid-template-columns: 1fr 20%; */
     /* grid-template-rows: auto 1fr auto; */
     /* position: relative; */
@@ -39,7 +40,7 @@ justify-content: center;
 
 
 .cardBody{
-  width: 100%;
+  /* width: 100%; */
   /* position: absolute; */
   display: flex;
  flex-direction: row;
@@ -113,7 +114,6 @@ margin-right: 10px;
   color: black;
   padding: 8px 10px;
   border-radius: 50px;
-  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); */
   transition: 0.35s ease all;
   overflow: hidden;
   max-width: 35px;
@@ -132,16 +132,21 @@ margin-right: 10px;
 }
 
 h3 {
-  font-size: 2.5vw;
+  font-size: 2vw;
   font-weight: bold;
   color: black;
   margin-bottom: 10px;
   text-align: center;
-  padding: 10px 40px 10px 40px;
+  margin-top: 1vw;
+  border: solid black 2px;
+  width:fit-content;
+  align-self: center;
+  margin: auto;
+  /* padding: 10px 40px 10px 40px; */
 }
 
 .logo {
-  width: 200px;
-  margin: 0 auto;
+  width: 20vw;
+  margin: 2vw auto;
   display: block;
 }
