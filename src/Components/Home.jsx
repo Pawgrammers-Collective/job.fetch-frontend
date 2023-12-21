@@ -1,54 +1,51 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import CoverLetter from "./CoverLetter";
 import JobCard from "./JobCard";
 import SearchForm from "./SearchForm.jsx";
-import { useAuth0 } from "@auth0/auth0-react";
+import styles from "./styles/Home.module.css";
 
 function Home(props) {
   const { isAuthenticated } = useAuth0();
   console.log(props);
   return (
     <>
-      <h1 style={{margin: '0', textAlign: 'center'}}>Home</h1>
-
+      <h1>Home</h1>
       {isAuthenticated ? (
         <>
-      <div style={{marginLeft: '46%'}}>
+        <div style={{marginLeft: '46%'}}>
           <SearchForm handleSearch={props.handleSearch} />
-
         </div>
-          <div
-            style={{
-              maxHeight: "700px",
-              overflowY: "auto",
+        <Container>
+        <Row className={styles.homeContainer}>
+          <Col className={styles.cardsContainer}>
+            <h3 className={styles.cardsHeader}> Fetched Jobs &#x1F436; </h3>
+            <JobCard
+              job={props.jobs}
+              generateCL={props.generateCL}
+              handleSave={props.handleSave}
+            />
+          </Col>
+          <Col className={styles.letterContainer}>
+            <h3 className={styles.letterHeader}> Coverletter &#128195; </h3>
+            <CoverLetter 
+              job={props.jobs}
+              coverLetter={props.coverLetter}
+              genCLJobDesc={props.genCLJobDesc}
+              saveCL={props.saveCL}
+            />
+          </Col>
+        </Row>
+        </Container>
 
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-            }}
-          >
-            <div>
-              <JobCard
-                job={props.jobs}
-                generateCL={props.generateCL}
-                handleSave={props.handleSave}
-                getNews={props.getNews}
-                newsArticle={props.newsArticle}
-              />
-            </div>
-            <div>
-              <CoverLetter 
-                job={props.jobs}
-                coverLetter={props.coverLetter}
-                genCLJobDesc={props.genCLJobDesc}
-                saveCL={props.saveCL}/>
-            </div>
-          </div>
         </>
       ) : (
         <p>Login to view content</p>
-      )}
+        )}
     </>
   );
 }
