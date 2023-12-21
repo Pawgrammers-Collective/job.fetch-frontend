@@ -20,7 +20,7 @@ const url = import.meta.env.VITE_SERVER_URL;
 function App(props) {
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
-
+  const [newsJob, setNewsJob] = useState('');
   const [savedJobs, setSavedJobs] = useState([]);
 
   const [coverLetters, setCoverLetters] = useState([]);
@@ -185,6 +185,24 @@ function App(props) {
     }
   }
 
+  async function getNews(company) {
+    let claim = await props.auth0.getIdTokenClaims();
+    console.log(claim)
+    let token = claim.__raw;
+    const config = {
+      headers: { "Authorization": `Bearer ${token}` },
+      method: "get",
+      url: `${url}/news`,
+      data: company,
+    }
+    try {
+      let response = await axios.get(config);
+      console.log(response.data);
+    } catch(e) {
+      console.log("no news for you :(", e);
+    }
+  }
+
   return (
     <>
       <Router>
@@ -202,7 +220,7 @@ function App(props) {
               element={<Home
                 jobs={jobs}
 
-                onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave={handleSave} handleSearch={handleSearch} getQuestions={getInterviewQuestions}
+                onSaveCoverLetter={handleSaveCoverLetter} coverLetters={coverLetters} handleSave={handleSave} handleSearch={handleSearch} getQuestions={getInterviewQuestions} getNews={getNews}
 
 
               />}
@@ -214,6 +232,8 @@ function App(props) {
                 savedJobs={savedJobs}
                 deleteSavedJob={deleteSavedJob} />}
             />
+
+            <Route exact path ="/news" />
 
             <Route
               exact path="/about-us"

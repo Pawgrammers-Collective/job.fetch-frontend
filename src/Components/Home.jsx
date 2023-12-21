@@ -33,6 +33,7 @@ function Home(props) {
                 job={props.jobs}
                 onSaveCoverLetter={props.onSaveCoverLetter}
                 handleSave={props.handleSave}
+                getNews={props.getNews}
               />
             </div>
             <div>

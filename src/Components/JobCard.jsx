@@ -8,7 +8,7 @@ import styles from "./styles/JobCard.module.css";
 function JobCard(props) {
   const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
 
-
+  console.log(props);
   const splitDescription = (description) => {
     // Use a regular expression to find and replace the desired text with bold formatting
     const formattedDescription = description.replace(
@@ -74,6 +74,7 @@ function JobCard(props) {
             >
               Generate a Cover Letter!
             </Button>
+            <Button onClick={()=> props.getNews(value.companyName)}>Get the News for this Company</Button>
           </Card.Body>
         </Card>
       ))}
