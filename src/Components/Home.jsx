@@ -33,6 +33,8 @@ function Home(props) {
                 job={props.jobs}
                 generateCL={props.generateCL}
                 handleSave={props.handleSave}
+                getNews={props.getNews}
+                newsArticle={props.newsArticle}
               />
             </div>
             <div>

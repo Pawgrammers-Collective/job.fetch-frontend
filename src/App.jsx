@@ -22,7 +22,7 @@ function App(props) {
   const [coverLetter, setCoverLetter] = useState([]);
   const [savedCLs, setSavedCLs] = useState([]);
   const [genCLJobDesc, setGenCLJobDesc] = useState('');
-  const [interviewQuestion, setInterviewQuestion] = useState('');
+  const [newsArticle, setNewsArticle] = useState({});
 
   async function generateCL(jobTitle, jobDescription) {
     if (props.auth0.isAuthenticated) {
@@ -239,6 +239,26 @@ function App(props) {
     }
   }
 
+  async function getNews(company) {
+    let claim = await props.auth0.getIdTokenClaims();
+    console.log(claim)
+    let token = claim.__raw;
+    const config = {
+      headers: { "Authorization": `Bearer ${token}` },
+      method: "get",
+      url: `${url}/news`,
+      params: {company: company},
+    }
+    console.log(config);
+    try {
+      let response = await axios(config);
+      console.log(response.data.articles[0]);
+      setNewsArticle(response.data.articles[0]);
+    } catch(e) {
+      console.log("no news for you :(", e);
+    }
+  }
+
   return (
     <>
       <Router>
@@ -261,6 +281,8 @@ function App(props) {
                 handleSave={handleSave}
                 handleSearch={handleSearch}
                 getQuestions={getInterviewQuestions}
+                getNews={getNews}
+                newsArticle={newsArticle}
               />}
             />
             <Route
