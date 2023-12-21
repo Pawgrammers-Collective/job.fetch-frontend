@@ -1,0 +1,54 @@
+
+
+.authbuttons{
+align-self: center; 
+color: antiquewhite;
+}
+
+.brand {
+  font-size: 2em;
+}
+
+
+.navBar {
+  background: #99ced4;
+   font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 20px;
+  /* width: 100vw; */
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.nav {
+  /* padding: 0.5em 0; */
+  display: flex;
+  justify-content: space-around;
+  width: 100vw; 
+}
+
+.navLink {
+  color: #48586d;
+  text-decoration: none;
+font-size: 1.2vw;
+
+}
+
+
+.navLink:hover {
+  color: rgb(255, 184, 4);
+  text-decoration: none;
+ 
+}
+
+  /* color: #6b7a8f
+  color: #4abdac
+  color: #f7882f
+  color: #f7c331
+  color: #dcc7aa
+  color: #99ced4
+    background: rgb(241, 145, 89);
+
+  
+  
+  */
