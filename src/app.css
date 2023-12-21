@@ -1,8 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: sans-serif;
-  background: #ffe48c;
-  width: 100vw;
-  /* position: relative; */
+  /* font-family: sans-serif; */
+  background: #ffeba7;
+  /* padding: 0;
+  margin: 0; */
+  height: 100vh;
+  /* min-height: 100vh; */
 }
 
 
@@ -16,6 +22,8 @@ h1 {
   /* outline: 10px ridge rgb(0, 0, 0); */
   width: 100vw;
   vertical-align: middle;
+  font-family: 'Kalam', cursive;
+
 }
 
 
@@ -31,30 +39,4 @@ h2 {
   background: #80b584;
 }
 
-
-
-.navLinks {
-  display: flex;
-  justify-content: space-around;
-  width: 100%; /* Adjust the width as needed */
-}
-
-
-
-.authbuttons{
-align-self: center; 
-}
-
-
-.footerItems {
-  /* font-size: 1.5vw; */
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-  background: rgb(241, 145, 89);
-  /* position: fixed; */
-  /* margin: 0 auto; */
-  align-self: center;
-  vertical-align: middle;
-}
 

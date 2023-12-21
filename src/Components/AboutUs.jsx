@@ -18,7 +18,7 @@ function AboutUs() {
 
   return (
     <>
-    <img src="public/img/logo.png" className={styles.logo}/>
+    <img src="/img/logo.png" className={styles.logo}/>
       <h3>Hover to Know More About Us</h3>
       <div className={styles.aboutContainer}>
         {aboutUs.map((value, index) => (

@@ -90,6 +90,7 @@ function JobCard(props) {
               ) : (
                 'Generate a Cover Letter!'
               )}
+
             </Button>
           </Card.Body>
         </Card>
