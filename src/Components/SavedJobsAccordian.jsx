@@ -100,7 +100,7 @@ function SavedJobsAccordian(props) {
                                   aria-hidden="true"
                                   variant="success"
                                 />
-                                <span className="visually-hidden">Fetching you letter...</span>
+                                <span>Fetching your letter...</span>
                               </>
                             ) : (
                               'Generate a Cover Letter!'
