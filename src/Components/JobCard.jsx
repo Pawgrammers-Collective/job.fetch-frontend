@@ -3,11 +3,18 @@ import React, { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Spinner from 'react-bootstrap/Spinner';
 import styles from "./styles/JobCard.module.css";
 
 function JobCard(props) {
   const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleClick = async (value) => {
+    setIsLoading(true);
+    await props.generateCL(value.title, value.description);
+    setIsLoading(false);
+  };
 
   const splitDescription = (description) => {
     // Use a regular expression to find and replace the desired text with bold formatting
@@ -68,11 +75,22 @@ function JobCard(props) {
 
             </Button>
 
-            <Button
-              onClick={() => props.generateCL(value.title, value.description)}
-              variant="primary"
-            >
-              Generate a Cover Letter!
+            <Button onClick={() => handleClick(value)} variant="primary">
+              {isLoading ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  <span className="visually-hidden">Loading...</span>
+                </>
+              ) : (
+                'Generate a Cover Letter!'
+              )}
+
             </Button>
           </Card.Body>
         </Card>
