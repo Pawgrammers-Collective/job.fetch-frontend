@@ -38,7 +38,7 @@ function Home(props) {
             <div>
               <CoverLetter 
                 job={props.jobs}
-                coverLetter={props.coverLetters}
+                coverLetter={props.coverLetter}
                 genCLJobDesc={props.genCLJobDesc}
                 saveCL={props.saveCL}/>
             </div>

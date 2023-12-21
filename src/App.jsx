@@ -21,7 +21,7 @@ function App(props) {
   const [city, setCity] = useState('');
   const [jobs, setJobs] = useState([]);
   const [savedJobs, setSavedJobs] = useState([]);
-  const [coverLetters, setCoverLetters] = useState([]);
+  const [coverLetter, setCoverLetter] = useState([]);
   const [savedCLs, setSavedCLs] = useState([]);
   const [genCLJobDesc, setGenCLJobDesc] = useState('');
   const [interviewQuestion, setInterviewQuestion] = useState('');
@@ -42,11 +42,12 @@ function App(props) {
         }
       }
       try {
-        const response = await axios(config);
-        setCoverLetters(response.data);
+        let response = await axios(config);
+        setCoverLetter(response.data);
         setGenCLJobDesc(jobDescription);
-        console.log('Cover letter get', response);
-
+        console.log('response.data is ', response.data);
+        console.log('coverLetter is ', coverLetter);
+        return response.data;
       } catch (error) {
         console.error('Error generating cover letter:', error);
       }
@@ -54,7 +55,7 @@ function App(props) {
 
   async function saveCL(coverletter , jobDescription) {
     console.log(coverletter);
-    console.log(jobDescription);
+    // console.log(jobDescription);
     if (props.auth0.isAuthenticated) {
       let claim = await props.auth0.getIdTokenClaims();
       console.log(claim)
@@ -258,7 +259,7 @@ function App(props) {
                 generateCL={generateCL}
                 genCLJobDesc={genCLJobDesc}
                 saveCL={saveCL}
-                coverLetters={coverLetters}
+                coverLetter={coverLetter}
                 handleSave={handleSave}
                 handleSearch={handleSearch}
                 getQuestions={getInterviewQuestions}
@@ -270,6 +271,8 @@ function App(props) {
                 getSavedJobs={getSavedJobs}
                 savedJobs={savedJobs}
                 deleteSavedJob={deleteSavedJob}
+                generateCL={generateCL}
+                saveCL={saveCL}
                 getSavedCLs={getSavedCLs}
                 deleteSavedCL={deleteSavedCL} 
                 savedCLs={savedCLs}/>}
