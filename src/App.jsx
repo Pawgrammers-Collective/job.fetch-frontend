@@ -119,11 +119,13 @@ function App(props) {
   }
 
 
-    function handleSearch(searchInput) {
-      console.log(searchInput);
-      setCity(searchInput);
-      getJobs(searchInput);
-    }
+
+  function handleSearch(searchInput) {
+    console.log(searchInput);
+    setCity(searchInput);
+    getJobs(searchInput);
+  }
+
 
     async function getJobs(city) {
       console.log(url);

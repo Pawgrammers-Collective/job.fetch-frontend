@@ -17,6 +17,7 @@ function SavedJobsAccordian(props) {
               <Accordion.Item eventKey={value._id}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ flex: 1 }}>
+
                     <Accordion.Header> {value.jobData.title} </Accordion.Header>
                   </div>
                   <Button 
@@ -25,6 +26,7 @@ function SavedJobsAccordian(props) {
                     onClick = {() => props.deleteSavedJob (value)}
                     >Delete
                   </Button>
+
                 </div>
                 <Accordion.Body>
                   <Accordion.Item eventKey={{idx}}>
@@ -60,6 +62,7 @@ function SavedJobsAccordian(props) {
                     </Accordion.Body>
                   </Accordion.Item>
                   <Accordion.Item eventKey={`${idx}.${idx}.${idx}.${idx}`}>
+
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div style={{ flex: 1 }}>
                         <Accordion.Header> Cover Letter </Accordion.Header>
@@ -82,6 +85,7 @@ function SavedJobsAccordian(props) {
                         </Button>
                       )}
                     </div>
+
                     <Accordion.Body>
                       {value.jobData && value.jobData.coverLetter && (
                         <p>{value.jobData.coverLetter}</p>
