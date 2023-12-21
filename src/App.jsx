@@ -198,36 +198,45 @@ function App(props) {
     }
 
 
-    async function deleteSavedJob(job) {
-      console.log('deleting ', { job });
-      if (props.auth0.isAuthenticated) {
-        let claim = await props.auth0.getIdTokenClaims();
-        console.log(claim)
-        let token = claim.__raw;
-        const config = {
-          headers: { "Authorization": `Bearer ${token}` },
-          method: "delete",
-          url: `${url}/jobs/${job._id}`,
-        }
-        try {
-          let response = await axios(config);
-          console.log(response.data);
-          getSavedJobs();
-        } catch (error) {
-          console.error('Error deleting jobs:', error.message);
-        }
+  async function deleteSavedJob(job) {
+    console.log('deleting ', { job });
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "delete",
+        url: `${url}/jobs/${job._id}`,
+      }
+      try {
+        let response = await axios(config);
+        console.log(response.data);
+        getSavedJobs();
+      } catch (error) {
+        console.error('Error deleting jobs:', error.message);
       }
     }
+  }
 
-
-  async function deleteSavedCL(cover){ 
-    console.log('deleting ',{cover});
-    try {
-      let response = await axios.delete(`${url}/jobs/${cover._id}`);
-      console.log(response.data);
-      getSavedCLs();
-    } catch(error) {
-        console.error('Error deleting Cover Letter:', error.message);
+  async function deleteSavedCL(cover) {
+    console.log('deleting ', { cover });
+    if (props.auth0.isAuthenticated) {
+      let claim = await props.auth0.getIdTokenClaims();
+      console.log(claim)
+      let token = claim.__raw;
+      const config = {
+        headers: { "Authorization": `Bearer ${token}` },
+        method: "delete",
+        url: `${url}/cover/saved/${cover._id}`,
+      }
+      try {
+        let response = await axios(config);
+        console.log(response.data);
+        getSavedCLs();
+      } catch (error) {
+        console.error('Error deleting jobs:', error.message);
+      }
     }
   }
 

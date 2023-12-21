@@ -4,8 +4,7 @@ import Accordion from "react-bootstrap/Accordion";
 import Button from 'react-bootstrap/Button';
 
 function SavedJobsAccordian(props) {
-  console.log(props.savedJobs);
-  console.log(props.savedCLs);
+  console.log(props);
   useEffect(() => {
   }, [props.savedJobs, props.savedCLs]);
   return (
@@ -101,7 +100,7 @@ function SavedJobsAccordian(props) {
                         <Button
                           variant="danger"
                           type="submit"
-                          onClick={() => props.deleteSavedCL(value)}
+                          onClick={() => props.deleteSavedCL(props.savedCLs.find(cl => cl.jobDescription === value.jobData.description))}
                         >
                           Delete
                         </Button>
