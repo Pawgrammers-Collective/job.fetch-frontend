@@ -99,13 +99,13 @@ console.log('Cover letter get', response);
   }
 
   async function deleteSavedJob(job){ 
-    console.log(job);
+    console.log('deleting ',{job});
     try {
-      let response = await axios.delete(`${url}/jobs/saved`);
+      let response = await axios.delete(`${url}/jobs/${job._id}`);
       console.log(response.data);
       getSavedJobs();
     } catch(error) {
-        console.error('Error getting jobs:', error.message);
+        console.error('Error deleting jobs:', error.message);
     }
   }
 
