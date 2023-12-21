@@ -24,7 +24,8 @@ function UserProfile(props) {
           <p>Welcome, {user.name}!</p>
           <SavedJobsAccordian 
           savedJobs={props.savedJobs}
-          deleteSavedJob={props.deleteSavedJob} />
+          deleteSavedJob={props.deleteSavedJob}
+          deleteSavedCL={props.deleteSavedCL} />
         </>
       ) : (
         <p>Login to view your profile</p>
