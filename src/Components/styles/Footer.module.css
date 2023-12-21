@@ -4,7 +4,7 @@
   padding: 20px;
   margin-top: 30px;
   background: #99ced4;
-  position: fixed;
+  /* position: fixed; */
   /* margin: 0 auto; */
   /* align-self: center;
   vertical-align: middle; */
@@ -17,7 +17,7 @@
 }
 
 .footerItems img {
-  width:10vw;
+  width:6vw;
 }
 
 /* .copyright{ */
