@@ -32,7 +32,7 @@ function JobCard(props) {
             </Button>
 
             <Button
-              onClick={() => props.onSaveCoverLetter(value.title, value.description)}
+              onClick={() => props.generateCL(value.title, value.description)}
               variant="primary"
             >
               Generate a Cover Letter!

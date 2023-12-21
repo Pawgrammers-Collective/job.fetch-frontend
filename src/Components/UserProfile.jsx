@@ -6,12 +6,21 @@ function UserProfile(props) {
   const { user, isAuthenticated } = useAuth0();
   console.log(props);
   let getSavedJobs = props.getSavedJobs;
+  let getSavedCLs = props.getSavedCLs;
 
   useEffect(() => {
-    console.log("Mount up");
+    console.log("Mount up Jobs");
     getSavedJobs();
     return () => {
-      console.log("Unmount");
+      console.log("Unmount Jobs");
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("Mount up CLs");
+    getSavedCLs();
+    return () => {
+      console.log("Unmount CLs");
     };
   }, []);
 
@@ -25,6 +34,8 @@ function UserProfile(props) {
           <SavedJobsAccordian 
           savedJobs={props.savedJobs}
           deleteSavedJob={props.deleteSavedJob}
+          savedCLs={props.savedCLs}
+          getSavedCLs={props.getSavedCLs}
           deleteSavedCL={props.deleteSavedCL} />
         </>
       ) : (
