@@ -53,3 +53,8 @@
 .AccordCoverHeader {
     padding-right: 10px;
 }
+
+.NoSavedJobs{
+    text-align: center;
+    font-size: larger;
+}
