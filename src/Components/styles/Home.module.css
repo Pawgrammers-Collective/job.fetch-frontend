@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
 
-.homeContainer {
+
+* {
+    border: solid black 2px
+  }
+
+
+.jobsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 10px;
     justify-content: top;
     align-items: center;
+    border: solid red 2px
+
 }
 
 .cardsContainer {
@@ -13,6 +21,8 @@
     flex-direction: column;
     justify-content: center;
     align-self: flex-start;
+    border: solid blue 2px
+
 }
 
 .letterContainer {
@@ -20,6 +30,8 @@
     flex-direction: column;
     justify-content: center;
     align-self: flex-start;
+    border: solid orange 2px
+
 }
 
 .cardsHeader {
@@ -30,6 +42,8 @@
     text-align: center;
     border-radius: 20px;
     margin: 10px;
+    border: solid purple 2px
+
 }
 
 .letterHeader {
@@ -40,4 +54,25 @@
     text-align: center;
     border-radius: 20px;
     margin: 10px;
+}
+
+p {
+    text-align: center
+    ;
+}
+
+.homeContainer {
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 100vw;
+}
+
+button {
+    align-self: center;
+}
+
+.searchButton {
+    align-self: center;
 }

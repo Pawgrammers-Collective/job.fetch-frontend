@@ -12,16 +12,18 @@ import styles from "./styles/Home.module.css";
 function Home(props) {
   const { isAuthenticated } = useAuth0();
   console.log(props);
+
+
   return (
     <>
       <h1>Home</h1>
       {isAuthenticated ? (
         <>
-        <div style={{marginLeft: '46%'}}>
-          <SearchForm handleSearch={props.handleSearch} />
+        <div className={styles.searchForm}  >
+          <SearchForm handleSearch={props.handleSearch} className={styles.searchButton}/>
         </div>
-        <Container>
-        <Row className={styles.homeContainer}>
+        <Container className={styles.homeContainer}>
+        <Row className={styles.jobsContainer}>
           <Col className={styles.cardsContainer}>
             <h3 className={styles.cardsHeader}> Fetched Jobs &#x1F436; </h3>
             <JobCard
@@ -46,7 +48,7 @@ function Home(props) {
 
         </>
       ) : (
-        <p>Login to view content</p>
+        <p>Please login in to view the job board.</p>
         )}
     </>
   );
