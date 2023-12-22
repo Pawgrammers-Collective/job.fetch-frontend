@@ -26,11 +26,11 @@ function UserProfile(props) {
 
   return (
     <>
-      <h1>Your Profile</h1>
+      
 
       {isAuthenticated ? (
         <>
-          <p>Welcome, {user.name}!</p>
+        <h1>{user.name}'s Profile</h1>
           <SavedJobsAccordian 
           savedJobs={props.savedJobs}
           deleteSavedJob={props.deleteSavedJob}

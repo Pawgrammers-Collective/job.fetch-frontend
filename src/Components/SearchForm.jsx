@@ -39,7 +39,7 @@ function SearchForm(props) {
             backdrop="static"
             keyboard={false}
           >
-            <Modal.Header closeButton>
+            <Modal.Header >
               <Modal.Title>Job location search</Modal.Title>
             </Modal.Header>
             <Modal.Body>

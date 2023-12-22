@@ -1,0 +1,55 @@
+.SavedJobAccordian {
+    width: 960px;
+    margin: 20px;
+    border-radius: 20px;
+    /* position: absolute; */
+    top: 300px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    
+}
+
+.AccordItem {
+    /* background-color: #ffeba7; */
+    background-color:beige;
+    padding: 20px;
+    /* background-color: brown; */
+
+}
+
+.AccordBody {
+    margin: 20px;
+    padding: 20px;
+}
+
+.AccordDescription {
+    background-color:#CCFFCC;
+    border-radius: 10px;
+
+}
+
+.AccordQualifications {
+    background-color:#CCFFCC;
+    border-radius: 10px;
+}
+
+.AccordResponsibilities {
+    background-color:#CCFFCC;
+    border-radius: 10px;
+}
+
+.AccordCover {
+    background-color:#CCFFCC;
+    border-radius: 10px;
+}
+
+.AccordHeader {
+    padding-right: 20px;
+}
+
+.AccordCoverHeader {
+    padding-right: 10px;
+}

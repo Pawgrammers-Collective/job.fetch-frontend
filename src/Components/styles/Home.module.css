@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+
+
+* {
+    border: solid black 2px
+  }
+
+
+.jobsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+    justify-content: top;
+    align-items: center;
+    border: solid red 2px
+
+}
+
+.cardsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+    border: solid blue 2px
+
+}
+
+.letterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+    border: solid orange 2px
+
+}
+
+.cardsHeader {
+    font-family: 'Kalam', cursive;
+    font-size: 3.5vw;
+    background-color: #f7c331;
+    color: #48586d;
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+    border: solid purple 2px
+
+}
+
+.letterHeader {
+    font-family: 'Kalam', cursive;
+    font-size: 3.5vw;
+    background-color: #f7c331;
+    color: #48586d;
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+p {
+    text-align: center
+    ;
+}
+
+.homeContainer {
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 100vw;
+}
+
+button {
+    align-self: center;
+}
+
+.searchButton {
+    align-self: center;
+}

@@ -22,7 +22,7 @@ function App(props) {
   const [coverLetter, setCoverLetter] = useState([]);
   const [savedCLs, setSavedCLs] = useState([]);
   const [genCLJobDesc, setGenCLJobDesc] = useState('');
-  const [interviewQuestion, setInterviewQuestion] = useState('');
+  const [newsArticle, setNewsArticle] = useState({});
 
   async function generateCL(jobTitle, jobDescription) {
     if (props.auth0.isAuthenticated) {
@@ -33,7 +33,6 @@ function App(props) {
         headers: { "Authorization": `Bearer ${token}` },
         method: "get",
         url: `${url}/cover`,
-        // If this doesn't work prob the params
         params: {
           jobTitle,
           jobDescription,
@@ -53,7 +52,6 @@ function App(props) {
 
   async function saveCL(coverletter , jobDescription) {
     console.log(coverletter);
-    // console.log(jobDescription);
     if (props.auth0.isAuthenticated) {
       let claim = await props.auth0.getIdTokenClaims();
       console.log(claim)
@@ -239,13 +237,33 @@ function App(props) {
     }
   }
 
+  async function getNews(company) {
+    let claim = await props.auth0.getIdTokenClaims();
+    console.log(claim)
+    let token = claim.__raw;
+    const config = {
+      headers: { "Authorization": `Bearer ${token}` },
+      method: "get",
+      url: `${url}/news`,
+      params: {company: company},
+    }
+    console.log(config);
+    try {
+      let response = await axios(config);
+      console.log( "news app.jsx", response.data.articles[0]);
+      setNewsArticle(response.data.articles[0]);
+    } catch(e) {
+      console.log("no news for you :(", e);
+    }
+  }
+
   return (
     <>
       <Router>
         <Header />
         <Routes>
             <Route
-              exacts
+              exact
               path="/"
               element={<LandingPage />}
             />
@@ -261,6 +279,8 @@ function App(props) {
                 handleSave={handleSave}
                 handleSearch={handleSearch}
                 getQuestions={getInterviewQuestions}
+                getNews={getNews}
+                newsArticle={newsArticle}
               />}
             />
             <Route

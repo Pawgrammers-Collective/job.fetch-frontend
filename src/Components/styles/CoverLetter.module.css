@@ -9,7 +9,7 @@
   overflow-y: auto;
   width: 600px;
   height: 500px;
-  position: fixed;
+  /* position: fixed; */
   right: 150px;
   padding: 12px;
 }

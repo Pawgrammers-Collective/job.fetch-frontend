@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap'); */
 
-.authbuttons{
-align-self: center; 
-color: antiquewhite;
+
+button {
+  text-transform: uppercase;
+  border-radius: 2em;
+
+  align-self: center; 
+
 }
+
 
 .brand {
   font-size: 3.5vw;
-  font-family: 'Kalam', cursive;
 }
 
 
@@ -20,7 +24,6 @@ color: antiquewhite;
   /* margin-left: 10px;
   margin-right: 10px; */
   margin: 10px;
-  font-family: 'Kalam', cursive;
 }
 
 .nav {
@@ -28,20 +31,27 @@ color: antiquewhite;
   display: flex;
   justify-content: space-around;
   width: 100vw; 
+  align-items: center;
+  text-transform: uppercase;
 }
 
 .navLink {
-  color: #48586d;
+  color: #f9f9f9;
   text-decoration: none;
 font-size: 2vw;
-
+/* text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000; */
 
 }
 
 
 .navLink:hover {
-  color: rgb(255, 184, 4);
+  color:#080909;
   text-decoration: none;
+  
  
 }
 
