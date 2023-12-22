@@ -33,7 +33,6 @@ function App(props) {
         headers: { "Authorization": `Bearer ${token}` },
         method: "get",
         url: `${url}/cover`,
-        // If this doesn't work prob the params
         params: {
           jobTitle,
           jobDescription,
@@ -53,7 +52,6 @@ function App(props) {
 
   async function saveCL(coverletter , jobDescription) {
     console.log(coverletter);
-    // console.log(jobDescription);
     if (props.auth0.isAuthenticated) {
       let claim = await props.auth0.getIdTokenClaims();
       console.log(claim)
@@ -265,7 +263,7 @@ function App(props) {
         <Header />
         <Routes>
             <Route
-              exacts
+              exact
               path="/"
               element={<LandingPage />}
             />
