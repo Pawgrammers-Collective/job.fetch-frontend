@@ -1,38 +1,52 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Spinner from 'react-bootstrap/Spinner';
 
 function SearchForm(props) {
   const { isAuthenticated } = useAuth0();
   const [show, setShow] = useState(false);
   const [cityInput, setCityInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   function handleChange(e) {
     setCityInput(e.target.value);
     console.log(e);
   }
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    props.handleSearch(cityInput);
+    setIsLoading(true);
     handleClose();
+    await props.handleSearch(cityInput);
+    setIsLoading(false);
     console.log(cityInput);
   }
-
   return (
     <>
       {isAuthenticated ? (
         <>
           <Button variant="primary" onClick={handleShow}>
-            Launch job search
+          {isLoading ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                    variant="success"
+                  />
+                  <span>Fetching your jobs...</span>
+                </>
+              ) : (
+                'Launch job search'
+              )}
           </Button>
-
           <Modal
             show={show}
             onHide={handleClose}
@@ -43,7 +57,7 @@ function SearchForm(props) {
               <Modal.Title>Job location search</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <InputGroup className="mb-3">
                   <Form.Control
                     type="text"
@@ -56,7 +70,6 @@ function SearchForm(props) {
                   <Button
                     variant="outline-secondary"
                     id="search-button"
-                    type="submit"
                     onClick={handleSubmit}
                   >
                     Search
@@ -77,5 +90,4 @@ function SearchForm(props) {
     </>
   );
 }
-
 export default SearchForm;
