@@ -5,11 +5,13 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Spinner from 'react-bootstrap/Spinner';
 
 function SearchForm(props) {
   const { isAuthenticated } = useAuth0();
   const [show, setShow] = useState(false);
   const [cityInput, setCityInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -18,9 +20,11 @@ function SearchForm(props) {
     console.log(e);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    props.handleSearch(cityInput);
+    setIsLoading(true);
+    await props.handleSearch(cityInput);
+    setIsLoading(false);
     handleClose();
     console.log(cityInput);
   }
@@ -29,9 +33,24 @@ function SearchForm(props) {
     <>
       {isAuthenticated ? (
         <>
-          <Button variant="primary" onClick={handleShow}>
-            Launch job search
+          <Button variant="primary" type ='submit' onClick={handleShow}>
+          {isLoading ? (
+                <>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                    variant="success"
+                  />
+                  <span>Fetching your jobs...</span>
+                </>
+              ) : (
+                'Launch job search'
+              )}
           </Button>
+
 
           <Modal
             show={show}
@@ -43,7 +62,7 @@ function SearchForm(props) {
               <Modal.Title>Job location search</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form onSubmit={handleSubmit}>
+              <Form>
                 <InputGroup className="mb-3">
                   <Form.Control
                     type="text"
