@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -8,7 +9,7 @@ import NewsModal from "./NewsModal.jsx";
 function JobCard(props) {
   const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
   const [isLoading, setIsLoading] = useState(Array(props.job.length).fill(false));
-
+  
   const handleClick = async (value, index) => {
     const updatedIsLoading = [...isLoading];
     updatedIsLoading[index] = true;
