@@ -25,9 +25,9 @@ function Home(props) {
           <Col className={styles.cardsContainer}>
             <h3 className={styles.cardsHeader}> Fetched Jobs &#x1F436; </h3>
             <JobCard
-              job={props.jobs}
+              jobs={props.jobs}
               generateCL={props.generateCL}
-              handleSave={props.handleSave}
+              saveJob={props.saveJob}
               newsArticle={props.newsArticle}
               getNews={props.getNews}
             />
