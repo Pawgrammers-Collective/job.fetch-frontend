@@ -19,9 +19,9 @@ function Home(props) {
       <h1>Home</h1>
       {isAuthenticated ? (
         <>
-        <div className={styles.searchForm}  >
-          <SearchForm handleSearch={props.handleSearch} className={styles.searchButton}/>
-        </div>
+        {/* <div className={styles.searchForm}  > */}
+          <SearchForm handleSearch={props.handleSearch} />
+        {/* </div> */}
         <Container className={styles.homeContainer}>
         <Row className={styles.jobsContainer}>
           <Col className={styles.cardsContainer}>

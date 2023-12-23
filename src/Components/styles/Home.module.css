@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
 
 
-* {
+/* * {
     border: solid black 2px
-  }
+  } */
 
 
 .jobsContainer {
@@ -12,7 +12,7 @@
     gap: 10px;
     justify-content: top;
     align-items: center;
-    border: solid red 2px
+    /* border: solid red 2px */
 
 }
 
@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-self: flex-start;
-    border: solid blue 2px
+    /* border: solid blue 2px */
 
 }
 
@@ -30,7 +30,7 @@
     flex-direction: column;
     justify-content: center;
     align-self: flex-start;
-    border: solid orange 2px
+    /* border: solid orange 2px */
 
 }
 
@@ -42,7 +42,7 @@
     text-align: center;
     border-radius: 20px;
     margin: 10px;
-    border: solid purple 2px
+    /* border: solid purple 2px */
 
 }
 
@@ -73,6 +73,6 @@ button {
     align-self: center;
 }
 
-.searchButton {
+/* .searchButton {
     align-self: center;
-}
+} */

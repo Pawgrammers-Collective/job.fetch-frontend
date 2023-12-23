@@ -7,6 +7,7 @@ display: flex;
  background: #ffeba7;
 flex-direction: column; 
   min-height: 100vh;
+  flex:1;
 }
 
 
@@ -15,7 +16,8 @@ h1 {
   font-size: 4vw;
   font-weight: bold;
   border-radius: 20px;
-  margin: auto;
+  margin-bottom: auto;
+  /* margin: auto; */
   /* outline: 10px ridge rgb(0, 0, 0); */
   width: 100vw;
   vertical-align: middle;
