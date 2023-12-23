@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Button from 'react-bootstrap/Button';
@@ -16,26 +15,24 @@ function SearchForm(props) {
   const [isLoading, setIsLoading] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   function handleChange(e) {
     setCityInput(e.target.value);
     console.log(e);
   }
-
   async function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
+    handleClose();
     await props.handleSearch(cityInput);
     setIsLoading(false);
-    handleClose();
     console.log(cityInput);
   }
-
   return (
     <>
       {isAuthenticated ? (
         <>
-          <Button variant="primary" type ='submit' onClick={handleShow}>
+          <Button variant="primary" onClick={handleShow}>
           {isLoading ? (
                 <>
                   <Spinner
@@ -52,8 +49,6 @@ function SearchForm(props) {
                 'Launch job search'
               )}
           </Button>
-
-
           <Modal
             show={show}
             onHide={handleClose}
@@ -77,7 +72,6 @@ function SearchForm(props) {
                   <Button
                     variant="outline-secondary"
                     id="search-button"
-                    type="submit"
                     onClick={handleSubmit}
                   >
                     Search
@@ -98,5 +92,4 @@ function SearchForm(props) {
     </>
   );
 }
-
 export default SearchForm;

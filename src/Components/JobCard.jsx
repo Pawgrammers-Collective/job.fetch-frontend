@@ -7,9 +7,9 @@ import styles from "./styles/JobCard.module.css";
 import NewsModal from "./NewsModal.jsx";
 
 function JobCard(props) {
-  const [isSaved, setIsSaved] = useState(Array(props.job.length).fill(false));
-  const [isLoading, setIsLoading] = useState(Array(props.job.length).fill(false));
-  
+  const [isSaved, setIsSaved] = useState(Array(props.jobs.length).fill(false));
+  const [isLoading, setIsLoading] = useState(Array(props.jobs.length).fill(false));
+
   const handleClick = async (value, index) => {
     const updatedIsLoading = [...isLoading];
     updatedIsLoading[index] = true;
@@ -49,23 +49,21 @@ function JobCard(props) {
 
   return (
     <div className={styles.JobCardContainer}>
-      {props.job.map((value, index) => (
+      {props.jobs.map((value, index) => (
         <Card key={index} className={styles.Card} style={{ width: "40em", height: "18rem" }}>
 
           <Card.Body>
             <Card.Title>{value.title}</Card.Title>
 
-
             {splitDescription(value.description).map((text, i) => (
               formatParagraph(text, i)
             ))}
 
-  
             <Button
               variant="primary"
               type="submit"
               onClick={() => {
-                props.handleSave(value);
+                props.saveJob(value);
                 const updatedIsSaved = [...isSaved];
                 updatedIsSaved[index] = !updatedIsSaved[index];
                 setIsSaved(updatedIsSaved);
