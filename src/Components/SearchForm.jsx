@@ -5,6 +5,8 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Spinner from 'react-bootstrap/Spinner';
+import styles from "./styles/Home.module.css";
+
 
 function SearchForm(props) {
   const { isAuthenticated } = useAuth0();
@@ -53,7 +55,7 @@ function SearchForm(props) {
             backdrop="static"
             keyboard={false}
           >
-            <Modal.Header closeButton>
+            <Modal.Header >
               <Modal.Title>Job location search</Modal.Title>
             </Modal.Header>
             <Modal.Body>

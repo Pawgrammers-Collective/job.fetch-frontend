@@ -20,7 +20,6 @@ function JobCard(props) {
   };
 
   const splitDescription = (description) => {
-    // Use a regular expression to find and replace the desired text with bold formatting
     const formattedDescription = description.replace(
       /\n\n(.*?)\n\n/g,
       (match, group) => `\n\n**${group}**\n\n`

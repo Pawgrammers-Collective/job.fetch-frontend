@@ -140,7 +140,6 @@ function App(props) {
 
   async function saveCL(coverletter , jobDescription) {
     console.log(coverletter);
-    // console.log(jobDescription);
     if (props.auth0.isAuthenticated) {
       let claim = await props.auth0.getIdTokenClaims();
       console.log(claim)
@@ -255,7 +254,7 @@ function App(props) {
         <Header />
         <Routes>
             <Route
-              exacts
+              exact
               path="/"
               element={<LandingPage />}
             />

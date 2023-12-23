@@ -7,10 +7,12 @@ function LandingPage() {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <div>
+    <div className={styles.LandingPage}>
        
 
       <h1>Welcome to Job.fetch( <img src="/img/logo.png" className={styles.logo}/> )</h1>
+
+
 
       {isAuthenticated ? (
         <div className={styles.intro}>
@@ -20,7 +22,12 @@ function LandingPage() {
         <Button className={styles.buttonAnimate}>Get started by clicking Home above!</Button>
         </div>
       ) : (
-        <p>Please log in to start finding a job!</p>
+        <div className={styles.introLogout}>
+<p> An all-in-one tech career preparation and job search engine.</p>
+           <p>Please log in to start your career today!</p>
+        </div>
+
+       
       )}
     </div>
   );

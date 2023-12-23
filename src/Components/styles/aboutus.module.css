@@ -136,7 +136,7 @@ h3 {
   margin-bottom: 10px;
   text-align: center;
   margin-top: 1vw;
-  border: solid black 2px;
+  /* border: solid black 2px; */
   width:fit-content;
   align-self: center;
   margin: auto;
