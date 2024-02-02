@@ -1,5 +1,7 @@
 # Job.fetch( )
 
+![Logo](public/img/logo.png)
+
 ## Group Members
 
 Kyle Aleman, Johnny Backus, Xin Deng, Brendan Huddleston
